@@ -19,4 +19,7 @@ public class TitlePanel extends MyPanel{
         pc.draw(g);
     }
     public Camera getCamera(){ return c; }
+    public void pingClick(int x,int y){
+        
+    }
 }

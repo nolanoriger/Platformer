@@ -77,6 +77,9 @@ public class GamePanel extends MyPanel{
         }
         return false;
     }
+    public void pingClick(int x,int y){
+        
+    }
     public PlayerCharacter getPC(){ return pc; }
     public ArrayList<GameObject> getGameObjects(){ return gameObjects; }
     public Camera getCamera(){ return c; }

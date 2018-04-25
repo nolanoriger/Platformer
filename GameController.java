@@ -89,7 +89,9 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
         else if(e.getKeyCode() == KeyEvent.VK_D) dPressed = false;
         else if(e.getKeyCode() == KeyEvent.VK_S) sPressed = false;
     }
-    public void mouseClicked(MouseEvent e){}
+    public void mouseClicked(MouseEvent e){
+        gamePanel.pingClick(e.getX(),e.getY());
+    }
     public void keyTyped(KeyEvent e){}
     public void mousePressed(MouseEvent e){}
     public void mouseExited(MouseEvent e){}
