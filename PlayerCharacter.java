@@ -1,42 +1,26 @@
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-
-public class PlayerCharacter extends Rigidbody{
-    private int speed = 10;
+public class PlayerCharacter extends RigidBody{
+    private int speed;
+    private boolean grounded;
     private String src;
-    
-    public PlayerCharacter(JPanel jp,int x, int y, String src) {
-        super(jp,x, y, 72, 81);
+    private static final int MAX_SPEED = 10;
+    public PlayerCharacter(JPanel jp,int x,int y,String src){
+        super(jp,x,y,72,81);
         this.src = src;
-        CircleCollider cc = new CircleCollider(this, getWidth()/2, getHeight()/2,36);
-        cc.setVisible(true);
-        getColliders().add(cc);
-        BoxCollider bc = new BoxCollider(this, 0, getHeight()/2, getWidth(), getHeight()/2);
-        bc.setVisible(true);
-        getColliders().add(bc);
+        getColliders().add(new CircleCollider(this,0,0,getWidth()/2));
+        getColliders().add(new BoxCollider(this,0,getHeight()/2,getWidth(),getHeight()/2));
     }
-    
-    public void draw(Graphics g) {
-        if(isVisible() ) {
+    public int getMaxSpeed(){ return MAX_SPEED; }
+    public boolean getGrounded(){ return grounded; }
+    public void setGrounded(boolean g){ grounded = g; }
+    public void draw(Graphics g){
+        if(isVisible()){
+            for(Collider c : getColliders()) c.draw(g);
             ImageIcon imgPC = new ImageIcon(src);
-            imgPC.paintIcon(getPanel(), g, getX(), getY());
-            
-            for(Collider c: getColliders()){
-                c.draw(g);
-            }
+            Camera c = ((MyPanel)getPanel()).getCamera();
+            imgPC.paintIcon(getPanel(),g,getX(),getY());
         }
-    }
-    
-    public void moveLeft(){
-        setX(getX() - speed);
-    }
-    
-    public void moveRight(){
-        setX(getX() + speed);
-    }
-    
-    public void jump(){
-        setFallSpeed(-16);
     }
 }
