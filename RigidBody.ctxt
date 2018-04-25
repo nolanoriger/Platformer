@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=RigidBody
+comment1.params=jp\ x\ y\ w\ h
+comment1.target=RigidBody(javax.swing.JPanel,\ int,\ int,\ int,\ int)
+comment2.params=
+comment2.target=void\ applyGravity()
+comment3.params=s
+comment3.target=void\ setSpeed(int)
+comment4.params=s
+comment4.target=void\ setFallSpeed(int)
+comment5.params=
+comment5.target=int\ getSpeed()
+comment6.params=
+comment6.target=int\ getFallSpeed()
+comment7.params=
+comment7.target=void\ applySpeed()
+numComments=8

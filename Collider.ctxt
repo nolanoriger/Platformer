@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Collider
+comment1.params=obj\ x\ y
+comment1.target=Collider(GameObject,\ int,\ int)
+comment2.params=
+comment2.target=int\ getX()
+comment3.params=
+comment3.target=int\ getY()
+comment4.params=
+comment4.target=int\ getLocalX()
+comment5.params=
+comment5.target=int\ getLocalY()
+comment6.params=
+comment6.target=GameObject\ getParent()
+comment7.params=obj
+comment7.target=boolean\ hit(GameObject)
+numComments=8

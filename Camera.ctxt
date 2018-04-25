@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Camera
+comment1.params=x\ y
+comment1.target=Camera(int,\ int)
+comment2.params=
+comment2.target=int\ getX()
+comment3.params=
+comment3.target=int\ getY()
+comment4.params=pc
+comment4.target=void\ setLocation(PlayerCharacter)
+comment5.params=x\ y
+comment5.target=void\ smooth(int,\ int)
+numComments=6

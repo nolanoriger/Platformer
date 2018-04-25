@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Ball
+comment1.params=jp\ x\ y\ r
+comment1.target=Ball(javax.swing.JPanel,\ int,\ int,\ int)
+comment2.params=g
+comment2.target=void\ draw(java.awt.Graphics)
+numComments=3

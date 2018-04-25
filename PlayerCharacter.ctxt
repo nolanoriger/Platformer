@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=PlayerCharacter
+comment1.params=jp\ x\ y\ src
+comment1.target=PlayerCharacter(javax.swing.JPanel,\ int,\ int,\ java.lang.String)
+comment2.params=
+comment2.target=int\ getMaxSpeed()
+comment3.params=
+comment3.target=boolean\ getGrounded()
+comment4.params=g
+comment4.target=void\ setGrounded(boolean)
+comment5.params=g
+comment5.target=void\ draw(java.awt.Graphics)
+numComments=6

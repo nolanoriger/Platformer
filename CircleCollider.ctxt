@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=CircleCollider
+comment1.params=obj\ x\ y\ r
+comment1.target=CircleCollider(GameObject,\ int,\ int,\ int)
+comment2.params=
+comment2.target=int\ getRadius()
+comment3.params=obj
+comment3.target=boolean\ hit(GameObject)
+comment4.params=c
+comment4.target=boolean\ hit(Collider)
+comment5.params=g
+comment5.target=void\ draw(java.awt.Graphics)
+numComments=6

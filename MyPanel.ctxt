@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=MyPanel
+comment1.params=
+comment1.target=Camera\ getCamera()
+comment2.params=x\ y
+comment2.target=void\ pingClick(int,\ int)
+numComments=3

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Platform
+comment1.params=jp\ x\ y\ w\ h
+comment1.target=Platform(javax.swing.JPanel,\ int,\ int,\ int,\ int)
+comment2.params=g
+comment2.target=void\ draw(java.awt.Graphics)
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4
