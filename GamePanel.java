@@ -38,6 +38,12 @@ public class GamePanel extends MyPanel{
             }
         }
     }
+    public void cameraUpdate(){
+        int x = c.getX();
+        if(pc.getX()+pc.getWidth()/2-x>pc.getPanel().getWidth()*3/5) x = pc.getX()-pc.getPanel().getWidth()*3/5+pc.getWidth()/2;
+        else if(pc.getX()+pc.getWidth()/2-x<pc.getPanel().getWidth()*2/5) x = pc.getX()-pc.getPanel().getWidth()*2/5+pc.getWidth()/2;
+        c.setLocation(x,0);
+    }
     public void handleX(RigidBody rb){
         if(!hitTest(rb)){
             int speed = rb.getSpeed();

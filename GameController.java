@@ -45,7 +45,7 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
     private void gameloop(){
         gameObjects = gamePanel.getGameObjects();
         controlChar();
-        gamePanel.getCamera().setLocation(gamePanel.getPC());
+        gamePanel.cameraUpdate();
         gamePanel.physicsUpdate();
         gamePanel.repaint();
     }
