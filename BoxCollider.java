@@ -7,7 +7,6 @@ public class BoxCollider extends Collider{
         super(obj,x,y);
         width = w;
         height = h;
-        setVisible(true);
     }
     public int getWidth(){ return width; }
     public int getHeight(){ return height; }

@@ -10,6 +10,7 @@ public class KillBox extends GameObject{
     }
     public void draw(Graphics g){
         if(isVisible()){
+            for(Collider c : getColliders()) c.draw(g);
             g.setColor(Color.red);
             g.fillRect(getX(),getY(),getWidth(),getHeight());
         }
