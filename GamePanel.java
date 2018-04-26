@@ -9,6 +9,7 @@ public class GamePanel extends MyPanel{
     private PlayerCharacter pc;
     private GameController gc;
     private Camera c;
+    private int lives = 3;
     public GamePanel(GameController gc){
         this.gc = gc;
         gameObjects = new ArrayList();
@@ -18,15 +19,14 @@ public class GamePanel extends MyPanel{
         gameObjects.add(new Platform(this,0,340,800,40));
         gameObjects.add(new Platform(this,300,200,200,20));
         gameObjects.add(new Platform(this,600,200,200,300));
+        gameObjects.add(new KillBox(this,200,200,100,100));
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(0,0,800,400);
         g.translate(-c.getX(),-c.getY());
-        for(GameObject obj : gameObjects){
-            obj.draw(g);
-        }
+        for(GameObject obj : gameObjects) obj.draw(g);
     }
     public void physicsUpdate(){
         for(GameObject obj : gameObjects){
@@ -45,11 +45,11 @@ public class GamePanel extends MyPanel{
         c.setLocation(x,0);
     }
     public void handleX(RigidBody rb){
-        if(!hitTest(rb)){
+        if(!(hitTest(rb) instanceof Platform)){
             int speed = rb.getSpeed();
             rb.move(speed,0);
-            if(speed!=0&&hitTest(rb)){
-                while(hitTest(rb)){
+            if(speed!=0&&hitTest(rb) instanceof Platform){
+                while(hitTest(rb) instanceof Platform){
                     rb.move(-speed/Math.abs(speed),0);
                 }
                 rb.setSpeed(0);
@@ -58,11 +58,11 @@ public class GamePanel extends MyPanel{
     }
     public void handleY(RigidBody rb){
         boolean finGrounded = false;
-        if(!hitTest(rb)){
+        if(!(hitTest(rb) instanceof Platform)){
             int fallSpeed = rb.getFallSpeed();
             rb.move(0,fallSpeed);
-            if(fallSpeed!=0&&hitTest(rb)){
-                while(hitTest(rb)){
+            if(fallSpeed!=0&&hitTest(rb) instanceof Platform){
+                while(hitTest(rb) instanceof Platform){
                     rb.move(0,-fallSpeed/Math.abs(fallSpeed));
                 }
                 rb.setFallSpeed(0);
@@ -75,13 +75,13 @@ public class GamePanel extends MyPanel{
             ((PlayerCharacter) rb).setGrounded(finGrounded);
         }
     }
-    public boolean hitTest(GameObject obj){
+    public GameObject hitTest(GameObject obj){
         for(GameObject cobj : gameObjects){
             if(obj.hit(cobj)&&obj!=cobj){
-                return true;
+                return cobj;
             }
         }
-        return false;
+        return null;
     }
     public void pingClick(int x,int y){
         
