@@ -1,7 +1,17 @@
 #BlueJ class context
 comment0.target=MyPanel
 comment1.params=
-comment1.target=Camera\ getCamera()
-comment2.params=x\ y
-comment2.target=void\ pingClick(int,\ int)
-numComments=3
+comment1.target=MyPanel()
+comment2.params=
+comment2.target=Camera\ getCamera()
+comment3.params=x\ y
+comment3.target=void\ pingClick(int,\ int)
+comment4.params=
+comment4.target=java.util.ArrayList\ getGameObjects()
+comment5.params=rb
+comment5.target=void\ handleX(RigidBody)
+comment6.params=rb
+comment6.target=void\ handleY(RigidBody)
+comment7.params=obj\ varClass
+comment7.target=java.util.ArrayList\ hitTest(GameObject,\ java.lang.Class)
+numComments=8

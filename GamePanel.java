@@ -40,41 +40,11 @@ public class GamePanel extends MyPanel{
     }
     public void cameraUpdate(){
         int x = c.getX();
-        if(pc.getX()+pc.getWidth()/2-x>pc.getPanel().getWidth()*3/5) x = pc.getX()-pc.getPanel().getWidth()*3/5+pc.getWidth()/2;
-        else if(pc.getX()+pc.getWidth()/2-x<pc.getPanel().getWidth()*2/5) x = pc.getX()-pc.getPanel().getWidth()*2/5+pc.getWidth()/2;
+        if(pc.getX()+pc.getWidth()/2-x>pc.getPanel().getWidth()*3/5) x = pc.getX()-getWidth()*3/5+pc.getWidth()/2;
+        else if(pc.getX()+pc.getWidth()/2-x<pc.getPanel().getWidth()*2/5) x = pc.getX()-getWidth()*2/5+pc.getWidth()/2;
         c.setLocation(x,0);
     }
-    public void handleX(RigidBody rb){
-        if(!(hitTest(rb,Platform.class) != null)){
-            int speed = rb.getSpeed();
-            rb.move(speed,0);
-            if(speed!=0&&hitTest(rb,Platform.class) != null){
-                while(hitTest(rb,Platform.class) != null) rb.move(-speed/Math.abs(speed),0);
-                rb.setSpeed(0);
-            }
-        }
-    }
-    public void handleY(RigidBody rb){
-        boolean finGrounded = false;
-        if(!(hitTest(rb,Platform.class) != null)){
-            int fallSpeed = rb.getFallSpeed();
-            rb.move(0,fallSpeed);
-            if(fallSpeed!=0&&hitTest(rb,Platform.class) != null){
-                while(hitTest(rb,Platform.class) != null) rb.move(0,-fallSpeed/Math.abs(fallSpeed));
-                rb.setFallSpeed(0);
-                if(fallSpeed>0) finGrounded = true;
-            }
-        }
-        if(rb instanceof PlayerCharacter) ((PlayerCharacter) rb).setGrounded(finGrounded);
-    }
-    public ArrayList hitTest(GameObject obj,Class<?> varClass){
-        ArrayList arr = new ArrayList();
-        for(GameObject cobj : getGameObjects()){
-            if(obj.hit(cobj)&&obj!=cobj&&varClass.isInstance(cobj)) arr.add(cobj);
-        }
-        if(arr.size()>0) return arr;
-        return null;
-    }
+    
     public void pingClick(int x,int y){
         
     }
