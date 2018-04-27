@@ -4,34 +4,32 @@ import javax.swing.JPanel;
 import java.util.ArrayList;
 public class GamePanel extends MyPanel{
     private static final long serialVersionUID = 1L;
-    private ArrayList<GameObject> gameObjects;
-    private ArrayList<KillBox> damage;
     private Platform plat;
     private PlayerCharacter pc;
     private GameController gc;
     private Camera c;
     private int lives = 3;
     public GamePanel(GameController gc){
+        super();
         this.gc = gc;
-        gameObjects = new ArrayList();
-        damage = new ArrayList();
         pc = new PlayerCharacter(this,200,200,"images/pc_singleframe.png");
         c = new Camera(pc.getX()-getWidth()/2,pc.getY()-getHeight()/2+pc.getHeight()/2);
+        ArrayList gameObjects = getGameObjects();
         gameObjects.add(pc);
         gameObjects.add(new Platform(this,0,340,800,40));
         gameObjects.add(new Platform(this,300,200,200,20));
         gameObjects.add(new Platform(this,600,200,200,300));
-        damage.add(new KillBox(this,700,100,100,100));
+        gameObjects.add(new KillBox(this,700,100,100,100));
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(0,0,800,400);
         g.translate(-c.getX(),-c.getY());
-        for(GameObject obj : gameObjects) obj.draw(g);
+        for(GameObject obj : getGameObjects()) obj.draw(g);
     }
     public void physicsUpdate(){
-        for(GameObject obj : gameObjects){
+        for(GameObject obj : getGameObjects()){
             if(obj instanceof RigidBody){
                 RigidBody rb = ((RigidBody) obj);
                 if(obj!=pc) rb.applyGravity();
@@ -71,7 +69,7 @@ public class GamePanel extends MyPanel{
     }
     public ArrayList hitTest(GameObject obj,Class<?> varClass){
         ArrayList arr = new ArrayList();
-        for(GameObject cobj : gameObjects){
+        for(GameObject cobj : getGameObjects()){
             if(obj.hit(cobj)&&obj!=cobj&&varClass.isInstance(cobj)) arr.add(cobj);
         }
         if(arr.size()>0) return arr;
@@ -81,6 +79,5 @@ public class GamePanel extends MyPanel{
         
     }
     public PlayerCharacter getPC(){ return pc; }
-    public ArrayList<GameObject> getGameObjects(){ return gameObjects; }
     public Camera getCamera(){ return c; }
 }
