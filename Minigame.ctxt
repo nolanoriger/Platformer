@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Minigame
+comment1.params=jp\ x\ y\ w\ h
+comment1.target=Minigame(javax.swing.JPanel,\ int,\ int,\ int,\ int)
+comment2.params=
+comment2.target=void\ func()
+comment3.params=g
+comment3.target=void\ draw(java.awt.Graphics)
+numComments=4

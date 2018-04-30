@@ -6,12 +6,10 @@ public class GamePanel extends MyPanel{
     private static final long serialVersionUID = 1L;
     private Platform plat;
     private PlayerCharacter pc;
-    private GameController gc;
     private Camera c;
     private int lives = 3;
     public GamePanel(GameController gc){
-        super();
-        this.gc = gc;
+        super(gc);
         pc = new PlayerCharacter(this,200,200,"images/pc_singleframe.png");
         c = new Camera(pc.getX()-getWidth()/2,pc.getY()-getHeight()/2+pc.getHeight()/2);
         ArrayList gameObjects = getGameObjects();
@@ -19,7 +17,7 @@ public class GamePanel extends MyPanel{
         gameObjects.add(new Platform(this,0,340,800,40));
         gameObjects.add(new Platform(this,300,200,200,20));
         gameObjects.add(new Platform(this,600,200,200,300));
-        gameObjects.add(new KillBox(this,700,100,100,100));
+        gameObjects.add(new Minigame(this,700,100,100,100));
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -44,7 +42,6 @@ public class GamePanel extends MyPanel{
         else if(pc.getX()+pc.getWidth()/2-x<pc.getPanel().getWidth()*2/5) x = pc.getX()-getWidth()*2/5+pc.getWidth()/2;
         c.setLocation(x,0);
     }
-    
     public void pingClick(int x,int y){
         
     }

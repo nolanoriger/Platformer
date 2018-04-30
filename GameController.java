@@ -8,7 +8,7 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
     private static final long serialVersionUID = 1L;
     private GamePanel gamePanel;
     private TitlePanel titlePanel;
-    private boolean aPressed,wPressed,dPressed,sPressed,jump = true; // default values are false
+    private boolean aPressed,wPressed,dPressed,sPressed,spacePressed,jump = true; // default values are false
     private Timer gameloopTimer,jumpTimer;
     private ArrayList<GameObject> gameObjects;
     private static final int GAMELOOP_FREQUENCY = 20;   // 50 fps
@@ -26,7 +26,7 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
         });
         gamePanel = new GamePanel(this);
         getContentPane().add(gamePanel);
-        //titlePanel = new TitlePanel();
+        //titlePanel = new TitlePanel(this);
         //getContentPane().add(titlePanel);
         //setComponentZOrder(titlePanel, 0);
         EventQueue.invokeLater(new Runnable(){
@@ -75,19 +75,25 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
         if(aPressed&&speed>-pc.getMaxSpeed()) pc.setSpeed(speed-1);
         if(dPressed&&speed<pc.getMaxSpeed()) pc.setSpeed(speed+1);
         if(!aPressed&&!dPressed&&speed!=0) pc.setSpeed(speed-speed/Math.abs(speed));
+        if(spacePressed&&gamePanel.hitTest(pc,Interaction.class)!=null) ((Interaction)gamePanel.hitTest(pc,Interaction.class).get(0)).func();
         pc.applyGravity();
+    }
+    public void minigame(){
+        System.out.println("Working");
     }
     public void keyPressed(KeyEvent e){
         if(e.getKeyCode() == KeyEvent.VK_A) aPressed = true;
         else if(e.getKeyCode() == KeyEvent.VK_W) wPressed = true;
         else if(e.getKeyCode() == KeyEvent.VK_D) dPressed = true;
         else if(e.getKeyCode() == KeyEvent.VK_S) sPressed = true;
+        else if(e.getKeyCode() == KeyEvent.VK_SPACE) spacePressed = true;
     }
     public void keyReleased(KeyEvent e){
         if(e.getKeyCode() == KeyEvent.VK_A) aPressed = false;
         else if(e.getKeyCode() == KeyEvent.VK_W) wPressed = false;
         else if(e.getKeyCode() == KeyEvent.VK_D) dPressed = false;
         else if(e.getKeyCode() == KeyEvent.VK_S) sPressed = false;
+        else if(e.getKeyCode() == KeyEvent.VK_SPACE) spacePressed = false;
     }
     public void mouseClicked(MouseEvent e){
         gamePanel.pingClick(e.getX(),e.getY());

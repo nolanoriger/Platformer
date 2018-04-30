@@ -7,7 +7,8 @@ public class TitlePanel extends MyPanel{
     private static final long serialVersionUID = 1L;
     private PlayerCharacter pc;
     private Camera c;
-    public TitlePanel(){
+    public TitlePanel(GameController gc){
+        super(gc);
         pc = new PlayerCharacter(this,400,180,"images/pc_singleFrame.png");
         c = new Camera(0,0);
     }
