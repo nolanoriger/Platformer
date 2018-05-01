@@ -12,7 +12,6 @@ public class Platform extends GameObject{
         if(isVisible()){
             for(Collider coll:getColliders()) coll.draw(g);
             g.setColor(COLOR);
-            Camera c = ((MyPanel)getPanel()).getCamera();
             g.fillRect(getX(),getY(),getWidth(),getHeight());
         }
     }

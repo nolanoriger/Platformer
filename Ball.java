@@ -12,7 +12,6 @@ public class Ball extends RigidBody{
         if(isVisible()){
             for(Collider c : getColliders()) c.draw(g);
             g.setColor(Color.red);
-            Camera c = ((MyPanel)getPanel()).getCamera();
             g.fillOval(getX(),getY(),radius*2,radius*2);
         }
     }

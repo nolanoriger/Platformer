@@ -11,6 +11,6 @@ public class Minigame extends Interaction{
     }
     public void draw(Graphics g){
         g.setColor(Color.cyan);
-        g.fillRect(0,0,0,0);
+        g.fillRect(getX(),getY(),getWidth(),getHeight());
     }
 }

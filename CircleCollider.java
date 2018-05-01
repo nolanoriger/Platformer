@@ -37,7 +37,6 @@ public class CircleCollider extends Collider{
     public void draw(Graphics g){
         if(isVisible()){
             g.setColor(Color.green);
-            Camera c = ((MyPanel)getPanel()).getCamera();
             g.fillOval(getX(),getY(),radius*2,radius*2);
         }
     }

@@ -79,7 +79,7 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
         pc.applyGravity();
     }
     public void minigame(){
-        System.out.println("Working");
+        
     }
     public void keyPressed(KeyEvent e){
         if(e.getKeyCode() == KeyEvent.VK_A) aPressed = true;

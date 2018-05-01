@@ -40,7 +40,6 @@ public class BoxCollider extends Collider{
     public void draw(Graphics g){
         if(isVisible()){
             g.setColor(Color.green);
-            Camera c = ((MyPanel)getPanel()).getCamera();
             g.fillRect(getX(),getY(),width,height);
         }
     }
