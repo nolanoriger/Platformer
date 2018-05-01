@@ -3,7 +3,7 @@ import java.awt.Graphics2D;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 public class PlayerCharacter extends RigidBody{
-    private boolean grounded;
+    private boolean grounded,direction;
     private String src;
     private static final int MAX_SPEED = 10;
     Animation anim;
@@ -20,13 +20,21 @@ public class PlayerCharacter extends RigidBody{
     public void draw(Graphics g){
         if(isVisible()){
             for(Collider c : getColliders()) c.draw(g);
-            if(grounded&&getSpeed()==0&&!anim.getImageSource().equals("images/idle.png")) anim = new Animation("images/idle.png",getPanel(),getX(),getY(),getWidth(),getHeight(),10,0);
-            else if(grounded&&getSpeed()>0&&!anim.getImageSource().equals("images/runR.png")) anim = new Animation("images/runR.png",getPanel(),getX(),getY(),getWidth(),getHeight(),27,0);
-            else if(grounded&&getSpeed()<0&&!anim.getImageSource().equals("images/runL.png")) anim = new Animation("images/runL.png",getPanel(),getX(),getY(),getWidth(),getHeight(),27,0);
-            else{
-                anim.setX(getX());
-                anim.setY(getY());
+            boolean ap = ((MyPanel)getPanel()).getGameController().getAPressed();
+            boolean dp = ((MyPanel)getPanel()).getGameController().getDPressed();
+            if(ap) direction = false;
+            else if(dp) direction = true;
+            if(grounded){
+                if(ap&&(!anim.getImageSource().equals("images/run.png")||anim.getDir())) anim = new Animation("images/run.png",getPanel(),getX(),getY(),getWidth(),getHeight(),27,0);
+                else if(dp&&(!anim.getImageSource().equals("images/run.png")||!anim.getDir())) anim = new Animation("images/run.png",getPanel(),getX(),getY(),getWidth(),getHeight(),27,0);
+                else if(!anim.getImageSource().equals("images/idle.png")||anim.getDir()!=direction) anim = new Animation("images/idle.png",getPanel(),getX(),getY(),getWidth(),getHeight(),10,0);
             }
+            else{
+                anim = new Animation("images/fall.png",getPanel(),getX(),getY(),getWidth(),getHeight(),10,0);
+            }
+            anim.setX(getX());
+            anim.setY(getY());
+            anim.setDir(direction);
             anim.draw(g);
         }
     }

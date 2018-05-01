@@ -81,6 +81,8 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
     public void minigame(){
         
     }
+    public boolean getAPressed(){ return aPressed; }
+    public boolean getDPressed(){ return dPressed; }
     public void keyPressed(KeyEvent e){
         if(e.getKeyCode() == KeyEvent.VK_A) aPressed = true;
         else if(e.getKeyCode() == KeyEvent.VK_W) wPressed = true;
