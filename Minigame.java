@@ -7,7 +7,7 @@ public class Minigame extends Interaction{
         super(jp,x,y,w,h);
     }
     public void func(){
-        ((MyPanel)(getPanel())).getGameController().minigame();
+        ((MyPanel)(getPanel())).getGameController().newMinigame();
     }
     public void draw(Graphics g){
         g.setColor(Color.cyan);

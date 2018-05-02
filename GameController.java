@@ -6,12 +6,13 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 public class GameController extends JFrame implements KeyListener,MouseListener{
     private static final long serialVersionUID = 1L;
-    private GamePanel gamePanel;
+    private GamePanel gamePanel,minigame;
     private TitlePanel titlePanel;
     private boolean aPressed,wPressed,dPressed,sPressed,spacePressed,jump = true; // default values are false
-    private Timer gameloopTimer,jumpTimer;
+    private Timer gameloopTimer,jumpTimer,minigameTimer;
     private ArrayList<GameObject> gameObjects;
     private static final int GAMELOOP_FREQUENCY = 20;   // 50 fps
+    private long startTime;
     public GameController(int width, int height){
         addKeyListener(this);
         addMouseListener(this);
@@ -38,6 +39,12 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
                     }
                 };
                 gameloopTimer = new Timer(GAMELOOP_FREQUENCY, gameloopListener);
+                ActionListener minigameListener = new ActionListener(){
+                    public void actionPerformed(ActionEvent actionEvent){
+                        minigame();
+                    }
+                };
+                minigameTimer = new Timer(GAMELOOP_FREQUENCY, minigameListener);
                 gameloopTimer.start();
             }
         });
@@ -77,6 +84,10 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
         if(!aPressed&&!dPressed&&speed!=0) pc.setSpeed(speed-speed/Math.abs(speed));
         if(spacePressed&&gamePanel.hitTest(pc,Interaction.class)!=null) ((Interaction)gamePanel.hitTest(pc,Interaction.class).get(0)).func();
         pc.applyGravity();
+    }
+    public void newMinigame(){
+        gameloopTimer.stop();
+        minigameTimer.start();
     }
     public void minigame(){
         
