@@ -6,7 +6,8 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 public class GameController extends JFrame implements KeyListener,MouseListener{
     private static final long serialVersionUID = 1L;
-    private GamePanel gamePanel,minigame;
+    private GamePanel gamePanel;
+    private MyPanel minigame;
     private TitlePanel titlePanel;
     private boolean aPressed,wPressed,dPressed,sPressed,spacePressed,jump = true; // default values are false
     private Timer gameloopTimer,jumpTimer,minigameTimer;
@@ -51,13 +52,36 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
     }
     private void gameloop(){
         gameObjects = gamePanel.getGameObjects();
-        controlChar();
+        controlChar(gamePanel);
         gamePanel.cameraUpdate();
         gamePanel.physicsUpdate();
         gamePanel.repaint();
     }
-    public void controlChar(){
-        PlayerCharacter pc = gamePanel.getPC();
+    public void newMinigame(){
+        gameloopTimer.stop();
+        minigameTimer.start();
+    }
+    public void minigame(){
+        
+    }
+    /*
+    public void changePanel(){
+        if(this.gamePanel.isVisible()&&this.gamePanel.getShip().getHealth()>0){
+            this.shopPanel.setVisible(true);
+            this.gamePanel.setVisible(false);
+            this.getContentPane().removeAll();
+            this.getContentPane().add(this.shopPanel);
+        }
+        else if(this.gamePanel.getShip().getHealth()>0){
+            this.shopPanel.setVisible(false);
+            this.gamePanel.setVisible(true);
+            this.getContentPane().removeAll();
+            this.getContentPane().add(this.gamePanel);
+            this.shopPanel.startTimer();
+        }
+    }*/
+    public void controlChar(MyPanel gp){
+        PlayerCharacter pc = gp.getPC();
         int speed = pc.getSpeed();
         int fallSpeed = pc.getFallSpeed();
         boolean grounded = pc.getGrounded();
@@ -82,15 +106,8 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
         if(aPressed&&speed>-pc.getMaxSpeed()) pc.setSpeed(speed-1);
         if(dPressed&&speed<pc.getMaxSpeed()) pc.setSpeed(speed+1);
         if(!aPressed&&!dPressed&&speed!=0) pc.setSpeed(speed-speed/Math.abs(speed));
-        if(spacePressed&&gamePanel.hitTest(pc,Interaction.class)!=null) ((Interaction)gamePanel.hitTest(pc,Interaction.class).get(0)).func();
+        if(spacePressed&&gamePanel.hitTest(pc,Interaction.class)!=null) ((Interaction)gp.hitTest(pc,Interaction.class).get(0)).func();
         pc.applyGravity();
-    }
-    public void newMinigame(){
-        gameloopTimer.stop();
-        minigameTimer.start();
-    }
-    public void minigame(){
-        
     }
     public boolean getAPressed(){ return aPressed; }
     public boolean getDPressed(){ return dPressed; }

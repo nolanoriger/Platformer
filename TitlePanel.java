@@ -19,6 +19,15 @@ public class TitlePanel extends MyPanel{
         g.drawString("PLATFORMER GAME", 200, 100);
         pc.draw(g);
     }
+    public void cameraUpdate(){
+        
+    }
+    public void physicsUpdate(){
+        
+    }
+    public PlayerCharacter getPC(){
+        return pc;
+    }
     public Camera getCamera(){ return c; }
     public void pingClick(int x,int y){
         

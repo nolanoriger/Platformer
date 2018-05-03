@@ -8,8 +8,11 @@ public abstract class MyPanel extends JPanel{
         this.gc = gc;
     }
     public GameController getGameController(){ return gc; }
+    public abstract PlayerCharacter getPC();
     public abstract Camera getCamera();
     public abstract void pingClick(int x,int y);
+    public abstract void cameraUpdate();
+    public abstract void physicsUpdate();
     public ArrayList<GameObject> getGameObjects(){ return gameObjects; }
     public void handleX(RigidBody rb){
         if(!(hitTest(rb,Platform.class) != null)){
