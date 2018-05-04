@@ -25,8 +25,9 @@ public class PlayerCharacter extends RigidBody{
             if(ap) direction = false;
             else if(dp) direction = true;
             if(grounded){
-                if(ap&&!anim.getImageSource().equals("images/run.png")) anim = new Animation("images/run.png",getPanel(),getX(),getY(),getWidth(),getHeight(),27,0);
-                else if(dp&&!anim.getImageSource().equals("images/run.png")) anim = new Animation("images/run.png",getPanel(),getX(),getY(),getWidth(),getHeight(),27,0);
+                if(getSpeed()==0&&!anim.getImageSource().equals("images/idle.png")) anim = new Animation("images/idle.png",getPanel(),getX(),getY(),getWidth(),getHeight(),22,0);
+                else if(ap&&getSpeed()<0&&!anim.getImageSource().equals("images/run.png")) anim = new Animation("images/run.png",getPanel(),getX(),getY(),getWidth(),getHeight(),27,0);
+                else if(dp&&getSpeed()>0&&!anim.getImageSource().equals("images/run.png")) anim = new Animation("images/run.png",getPanel(),getX(),getY(),getWidth(),getHeight(),27,0);
                 else if(!ap&&!dp&&!anim.getImageSource().equals("images/idle.png")) anim = new Animation("images/idle.png",getPanel(),getX(),getY(),getWidth(),getHeight(),22,0);
             }
             else{

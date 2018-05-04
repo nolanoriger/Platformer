@@ -103,8 +103,12 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
                 }
             });
         }
-        if(aPressed&&speed>-pc.getMaxSpeed()) pc.setSpeed(speed-1);
-        if(dPressed&&speed<pc.getMaxSpeed()) pc.setSpeed(speed+1);
+        if(aPressed&&speed>-pc.getMaxSpeed()&&!dPressed) pc.setSpeed(speed-1);
+        else if(dPressed&&speed<pc.getMaxSpeed()&&!aPressed) pc.setSpeed(speed+1);
+        else if(aPressed&&dPressed){
+            if(speed>0) pc.setSpeed(speed-1);
+            else if(speed<0) pc.setSpeed(speed+1);
+        }
         if(!aPressed&&!dPressed&&speed!=0) pc.setSpeed(speed-speed/Math.abs(speed));
         if(spacePressed&&gamePanel.hitTest(pc,Interaction.class)!=null) ((Interaction)gp.hitTest(pc,Interaction.class).get(0)).func();
         pc.applyGravity();

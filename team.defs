@@ -1,17 +1,9 @@
-#Fri Apr 27 13:25:00 PDT 2018
-bluej.teamsettings.groupname=
-bluej.teamsettings.git.repositoryPrefix=/nolanoriger/Platformer.git
+#Fri May 04 13:52:16 PDT 2018
 bluej.teamsettings.git.protocol=https
+bluej.teamsettings.yourName=Nolan
 bluej.teamsettings.user=nolanoriger
+bluej.teamsettings.groupname=
+bluej.teamsettings.git.repositoryPrefix=/nolanoriger/Platformer
 bluej.teamsettings.git.server=github.com
-bluej.teamsettings.yourEmail=EthaSamuels@gmail.com
 bluej.teamsettings.vcs=git
-bluej.teamsettings.ignore8=\\.DS_Store
-bluej.teamsettings.yourName=Ethan
-bluej.teamsettings.ignore7=.*\\\#backup
-bluej.teamsettings.ignore6=.*\\\#
-bluej.teamsettings.ignore5=.*\\~
-bluej.teamsettings.ignore4=.*\\.ctxt
-bluej.teamsettings.ignore3=team\\.defs
-bluej.teamsettings.ignore2=bluej\\.pkh
-bluej.teamsettings.ignore1=.*\\.class
+bluej.teamsettings.yourEmail=nolanoriger@gmail.com
