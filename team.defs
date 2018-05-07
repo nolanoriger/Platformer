@@ -1,9 +1,9 @@
-#Fri May 04 13:52:16 PDT 2018
+#Mon May 07 13:19:14 PDT 2018
 bluej.teamsettings.git.protocol=https
 bluej.teamsettings.yourName=Nolan
 bluej.teamsettings.user=nolanoriger
 bluej.teamsettings.groupname=
-bluej.teamsettings.git.repositoryPrefix=/nolanoriger/Platformer
-bluej.teamsettings.git.server=github.com
-bluej.teamsettings.vcs=git
 bluej.teamsettings.yourEmail=nolanoriger@gmail.com
+bluej.teamsettings.vcs=git
+bluej.teamsettings.git.server=github.com
+bluej.teamsettings.git.repositoryPrefix=/nolanoriger/Platformer
