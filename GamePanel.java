@@ -10,14 +10,22 @@ public class GamePanel extends MyPanel{
     private int lives = 3;
     public GamePanel(GameController gc){
         super(gc);
-        pc = new PlayerCharacter(this,200,200,"images/pc_singleframe.png");
+        pc = new PlayerCharacter(this,200,0,"images/pc_singleframe.png");
         c = getCamera();
         c.setLocation(pc.getX()-getWidth()/2,pc.getY()-getHeight()/2+pc.getHeight()/2);
         ArrayList gameObjects = getGameObjects();
         gameObjects.add(pc);
-        gameObjects.add(new Platform(this,0,340,800,40));
-        gameObjects.add(new Platform(this,300,200,200,20));
-        gameObjects.add(new Platform(this,600,200,200,300));
+        gameObjects.add(new Platform(this,0,0,1,18));
+        gameObjects.add(new Platform(this,1,2,10,1));
+        gameObjects.add(new Platform(this,7,1,4,1));
+        gameObjects.add(new Platform(this,1,3,28,2));
+        gameObjects.add(new Platform(this,29,4,8,1));
+        gameObjects.add(new Platform(this,31,1,3,1));
+        gameObjects.add(new Platform(this,14,0,3,1));
+        gameObjects.add(new Platform(this,19,2,10,1));
+        gameObjects.add(new Platform(this,21,1,8,1));
+        gameObjects.add(new Platform(this,27,0,2,1));
+        gameObjects.add(new Platform(this,42,0,1,18));
         gameObjects.add(new Minigame(this,700,100,100,100,MinigamePanel.class));
     }
     public void paintComponent(Graphics g){
@@ -39,6 +47,7 @@ public class GamePanel extends MyPanel{
     }
     public void cameraUpdate(){
         int x = c.getX();
+        int y = c.getY();
         if(pc.getX()+pc.getWidth()/2-x>pc.getPanel().getWidth()*3/5) x = pc.getX()-getWidth()*3/5+pc.getWidth()/2;
         else if(pc.getX()+pc.getWidth()/2-x<pc.getPanel().getWidth()*2/5) x = pc.getX()-getWidth()*2/5+pc.getWidth()/2;
         c.setLocation(x,0);
