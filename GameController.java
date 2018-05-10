@@ -55,7 +55,7 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
         try{
             if(!varClass.equals(GamePanel.class)){
                 currentPanel.setVisible(false);
-                currentPanel = (MyPanel)(varClass.getConstructor(GameController.class).newInstance(this));
+                currentPanel = varClass.getConstructor(GameController.class).newInstance(this);
                 currentPanel.setVisible(true);
                 getContentPane().removeAll();
                 getContentPane().add(currentPanel);
