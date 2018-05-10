@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.JFrame;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
+import java.lang.reflect.Constructor;
 public class GameController extends JFrame implements KeyListener,MouseListener{
     private static final long serialVersionUID = 1L;
     private GamePanel gamePanel;
@@ -49,12 +50,12 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
         currentPanel.physicsUpdate();
         currentPanel.repaint();
     }
-    public void changePanel(Class<?> varClass){
+    public void changePanel(Class<? extends MyPanel> varClass){
         MyPanel p;
         try{
             if(!varClass.equals(GamePanel.class)){
                 currentPanel.setVisible(false);
-                currentPanel = (MyPanel)(varClass.getConstructor(GameController.class).newInstance());
+                currentPanel = (MyPanel)(varClass.getConstructor(GameController.class).newInstance(this));
                 currentPanel.setVisible(true);
                 getContentPane().removeAll();
                 getContentPane().add(currentPanel);
