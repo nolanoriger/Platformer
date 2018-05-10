@@ -12,6 +12,4 @@ comment5.params=
 comment5.target=PlayerCharacter\ getPC()
 comment6.params=x\ y
 comment6.target=void\ pingClick(int,\ int)
-comment7.params=
-comment7.target=Camera\ getCamera()
-numComments=8
+numComments=7

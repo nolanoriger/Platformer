@@ -5,7 +5,7 @@ public class MinigamePanel extends MyPanel{
     private PlayerCharacter pc;
     public MinigamePanel(GameController gc){
         super(gc);
-        c = new Camera(0,0);
+        c = getCamera();
     }
     public void paintComponent(Graphics g){
         g.setColor(Color.gray);
@@ -20,8 +20,5 @@ public class MinigamePanel extends MyPanel{
     public PlayerCharacter getPC(){ return pc; }
     public void pingClick(int x,int y){
         
-    }
-    public Camera getCamera(){
-        return c;
     }
 }

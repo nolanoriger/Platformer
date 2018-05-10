@@ -3,13 +3,15 @@ import java.util.ArrayList;
 public abstract class MyPanel extends JPanel{
     private ArrayList<GameObject> gameObjects;
     private GameController gc;
+    private Camera cam;
     public MyPanel(GameController gc){
         gameObjects = new ArrayList();
         this.gc = gc;
+        cam = new Camera(0,0);
     }
     public GameController getGameController(){ return gc; }
+    public  Camera getCamera(){ return cam; }
     public abstract PlayerCharacter getPC();
-    public abstract Camera getCamera();
     public abstract void pingClick(int x,int y);
     public abstract void cameraUpdate();
     public abstract void physicsUpdate();

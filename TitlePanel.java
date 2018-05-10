@@ -10,7 +10,7 @@ public class TitlePanel extends MyPanel{
     public TitlePanel(GameController gc){
         super(gc);
         pc = new PlayerCharacter(this,400,180,"images/pc_singleFrame.png");
-        c = new Camera(0,0);
+        c = getCamera();
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -28,8 +28,7 @@ public class TitlePanel extends MyPanel{
     public PlayerCharacter getPC(){
         return pc;
     }
-    public Camera getCamera(){ return c; }
     public void pingClick(int x,int y){
-        
+        getGameController().changePanel(GamePanel.class);
     }
 }

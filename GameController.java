@@ -7,12 +7,12 @@ import java.util.ArrayList;
 public class GameController extends JFrame implements KeyListener,MouseListener{
     private static final long serialVersionUID = 1L;
     private GamePanel gamePanel;
-    private MyPanel minigame;
+    private MyPanel currentPanel;
     private TitlePanel titlePanel;
-    private boolean aPressed,wPressed,dPressed,sPressed,spacePressed,jump = true; // default values are false
+    private boolean aPressed,wPressed,dPressed,sPressed,spacePressed,jump = true;
     private Timer gameloopTimer,jumpTimer,minigameTimer;
     private ArrayList<GameObject> gameObjects;
-    private static final int GAMELOOP_FREQUENCY = 20;   // 50 fps
+    private static final int GAMELOOP_FREQUENCY = 20;
     private long startTime;
     public GameController(int width, int height){
         addKeyListener(this);
@@ -27,10 +27,8 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
             }
         });
         gamePanel = new GamePanel(this);
-        getContentPane().add(gamePanel);
-        //titlePanel = new TitlePanel(this);
-        //getContentPane().add(titlePanel);
-        //setComponentZOrder(titlePanel, 0);
+        currentPanel = new TitlePanel(this);
+        getContentPane().add(currentPanel);
         EventQueue.invokeLater(new Runnable(){
             @Override
             public void run(){
@@ -40,46 +38,44 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
                     }
                 };
                 gameloopTimer = new Timer(GAMELOOP_FREQUENCY, gameloopListener);
-                ActionListener minigameListener = new ActionListener(){
-                    public void actionPerformed(ActionEvent actionEvent){
-                        minigame();
-                    }
-                };
-                minigameTimer = new Timer(GAMELOOP_FREQUENCY, minigameListener);
                 gameloopTimer.start();
             }
         });
     }
     private void gameloop(){
-        gameObjects = gamePanel.getGameObjects();
-        controlChar(gamePanel);
-        gamePanel.cameraUpdate();
-        gamePanel.physicsUpdate();
-        gamePanel.repaint();
+        gameObjects = currentPanel.getGameObjects();
+        control();
+        currentPanel.cameraUpdate();
+        currentPanel.physicsUpdate();
+        currentPanel.repaint();
     }
-    public void newMinigame(){
-        gameloopTimer.stop();
-        minigameTimer.start();
-    }
-    public void minigame(){
-        
-    }
-    /*
-    public void changePanel(){
-        if(this.gamePanel.isVisible()&&this.gamePanel.getShip().getHealth()>0){
-            this.shopPanel.setVisible(true);
-            this.gamePanel.setVisible(false);
-            this.getContentPane().removeAll();
-            this.getContentPane().add(this.shopPanel);
+    public void changePanel(Class<?> varClass){
+        MyPanel p;
+        try{
+            if(!varClass.equals(GamePanel.class)){
+                currentPanel.setVisible(false);
+                currentPanel = (MyPanel)(varClass.getConstructor(GameController.class).newInstance());
+                currentPanel.setVisible(true);
+                getContentPane().removeAll();
+                getContentPane().add(currentPanel);
+            }
+            else{
+                currentPanel.setVisible(false);
+                currentPanel = gamePanel;
+                currentPanel.setVisible(true);
+                getContentPane().removeAll();
+                getContentPane().add(currentPanel);
+            }
         }
-        else if(this.gamePanel.getShip().getHealth()>0){
-            this.shopPanel.setVisible(false);
-            this.gamePanel.setVisible(true);
-            this.getContentPane().removeAll();
-            this.getContentPane().add(this.gamePanel);
-            this.shopPanel.startTimer();
+        catch(Exception NoSuchMethodException){
+            System.out.println("Error, no such panel");
         }
-    }*/
+    }
+    public void control(){
+        if(currentPanel.equals(gamePanel)){
+            controlChar(gamePanel);
+        }
+    }
     public void controlChar(MyPanel gp){
         PlayerCharacter pc = gp.getPC();
         int speed = pc.getSpeed();
@@ -110,7 +106,7 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
             else if(speed<0) pc.setSpeed(speed+1);
         }
         if(!aPressed&&!dPressed&&speed!=0) pc.setSpeed(speed-speed/Math.abs(speed));
-        if(spacePressed&&gamePanel.hitTest(pc,Interaction.class)!=null) ((Interaction)gp.hitTest(pc,Interaction.class).get(0)).func();
+        if(spacePressed&&gamePanel.hitTest(pc,Interaction.class)!=null&&gamePanel.isVisible()) ((Interaction)gp.hitTest(pc,Interaction.class).get(0)).func();
         pc.applyGravity();
     }
     public boolean getAPressed(){ return aPressed; }
@@ -130,7 +126,7 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
         else if(e.getKeyCode() == KeyEvent.VK_SPACE) spacePressed = false;
     }
     public void mouseClicked(MouseEvent e){
-        gamePanel.pingClick(e.getX(),e.getY());
+        currentPanel.pingClick(e.getX(),e.getY());
     }
     public void keyTyped(KeyEvent e){}
     public void mousePressed(MouseEvent e){}

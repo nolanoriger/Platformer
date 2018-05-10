@@ -11,13 +11,14 @@ public class GamePanel extends MyPanel{
     public GamePanel(GameController gc){
         super(gc);
         pc = new PlayerCharacter(this,200,200,"images/pc_singleframe.png");
-        c = new Camera(pc.getX()-getWidth()/2,pc.getY()-getHeight()/2+pc.getHeight()/2);
+        c = getCamera();
+        c.setLocation(pc.getX()-getWidth()/2,pc.getY()-getHeight()/2+pc.getHeight()/2);
         ArrayList gameObjects = getGameObjects();
         gameObjects.add(pc);
         gameObjects.add(new Platform(this,0,340,800,40));
         gameObjects.add(new Platform(this,300,200,200,20));
         gameObjects.add(new Platform(this,600,200,200,300));
-        gameObjects.add(new Minigame(this,700,100,100,100));
+        gameObjects.add(new Minigame(this,700,100,100,100,MinigamePanel.class));
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -46,5 +47,4 @@ public class GamePanel extends MyPanel{
         
     }
     public PlayerCharacter getPC(){ return pc; }
-    public Camera getCamera(){ return c; }
 }
