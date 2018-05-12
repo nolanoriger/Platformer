@@ -50,7 +50,7 @@ public class GamePanel extends MyPanel{
         gameObjects.add(new Platform(this,25,14,1,3));
         gameObjects.add(new Platform(this,27,15,1,2));
         gameObjects.add(new Platform(this,29,16,1,1));
-        gameObjects.add(new Minigame(this,700,100,100,100,MinigamePanel.class));
+        //gameObjects.add(new Minigame(this,x,y,w,h,MinigamePanel.class));
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -72,9 +72,9 @@ public class GamePanel extends MyPanel{
     public void cameraUpdate(){
         int x = c.getX();
         int y = c.getY();
-        if(pc.getX()+pc.getWidth()/2-x>pc.getPanel().getWidth()*3/5) x = pc.getX()-getWidth()*3/5+pc.getWidth()/2;
-        else if(pc.getX()+pc.getWidth()/2-x<pc.getPanel().getWidth()*2/5) x = pc.getX()-getWidth()*2/5+pc.getWidth()/2;
-        c.setLocation(x,0);
+        if(pc.getX()+pc.getWidth()/2-x>getWidth()*3/5) x = pc.getX()-getWidth()*3/5+pc.getWidth()/2;
+        else if(pc.getX()+pc.getWidth()/2-x<getWidth()*2/5) x = pc.getX()-getWidth()*2/5+pc.getWidth()/2;
+        c.setLocation(x,pc.getY()+pc.getHeight()/2-getHeight()/2);
     }
     public void pingClick(int x,int y){
         
