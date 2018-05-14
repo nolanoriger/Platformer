@@ -5,8 +5,8 @@ import javax.swing.JPanel;
 public class Platform extends GameObject{
     private static final Color COLOR = Color.YELLOW;
     Platform(JPanel jp,int x,int y,int w,int h){
-        super(jp,x,y,w,h);
-        getColliders().add(new BoxCollider(this,0,0,w,h));
+        super(jp,x*50,y*50,w*50,h*50);
+        getColliders().add(new BoxCollider(this,0,0,w*50,h*50));
     }
     public void draw(Graphics g){
         if(isVisible()){

@@ -8,13 +8,13 @@ public class GameOverPanel extends MyPanel{
         c = getCamera();
     }
     public void paintComponent(Graphics g){
+        super.paintComponent(g);
         g.setColor(Color.red);
         g.fillRect(0,0,getWidth(),getHeight());
         g.setColor(Color.black);
         g.setFont(Font.decode("Comic Sans MS-50"));
-        g.drawString("Game over",getWidth()/2,getHeight()/2);
+        g.drawString("Game over",200,100);
     }
     public void physicsUpdate(){ }
-    public void cameraUpdate(){ }
     public void pingClick(int x,int y){ }
 }

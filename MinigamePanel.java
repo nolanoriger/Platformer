@@ -7,16 +7,12 @@ public class MinigamePanel extends MyPanel{
         c = getCamera();
     }
     public void paintComponent(Graphics g){
+        super.paintComponent(g);
         g.setColor(Color.gray);
         g.fillRect(0,0,getWidth(),getHeight());
     }
-    public void physicsUpdate(){
-        
-    }
-    public void cameraUpdate(){
-        
-    }
+    public void physicsUpdate(){ }
     public void pingClick(int x,int y){
-        getGameController().changePanel(GamePanel.class);
+        getGameController().changePanel(getGameController().getGamePanel().getClass());
     }
 }

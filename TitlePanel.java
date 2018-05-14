@@ -5,30 +5,20 @@ import javax.swing.JPanel;
 import java.util.ArrayList;
 public class TitlePanel extends MyPanel{
     private static final long serialVersionUID = 1L;
-    private PlayerCharacter pc;
     private Camera c;
     public TitlePanel(GameController gc){
         super(gc);
-        pc = new PlayerCharacter(this,400,180,"images/pc_singleFrame.png");
         c = getCamera();
     }
     public void paintComponent(Graphics g){
-        super.paintComponent(g);
-        g.setFont(new Font("TimesRoman", Font.PLAIN, 40));
-        g.setColor(Color.RED);
-        g.drawString("PLATFORMER GAME", 200, 100);
-        pc.draw(g);
+        g.setColor(Color.white);
+        g.fillRect(0,0,getWidth(),getHeight());
+        g.setFont(Font.decode("Comic Sans MS-50"));
+        g.setColor(Color.black);
+        g.drawString("PLATFORMER GAME", 150, 100);
     }
-    public void cameraUpdate(){
-        
-    }
-    public void physicsUpdate(){
-        
-    }
-    public PlayerCharacter getPC(){
-        return pc;
-    }
+    public void physicsUpdate(){ }
     public void pingClick(int x,int y){
-        getGameController().changePanel(GameOverPanel.class);
+        getGameController().changePanel(ParLostLevel.class);
     }
 }

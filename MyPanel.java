@@ -10,10 +10,7 @@ public abstract class MyPanel extends JPanel{
         cam = new Camera(0,0);
     }
     public GameController getGameController(){ return gc; }
-    public  Camera getCamera(){ return cam; }
-    public abstract void pingClick(int x,int y);
-    public abstract void cameraUpdate();
-    public abstract void physicsUpdate();
+    public Camera getCamera(){ return cam; }
     public ArrayList<GameObject> getGameObjects(){ return gameObjects; }
     public void handleX(RigidBody rb){
         if(!(hitTest(rb,Platform.class) != null)){
@@ -46,4 +43,6 @@ public abstract class MyPanel extends JPanel{
         if(arr.size()>0) return arr;
         return null;
     }
+    public abstract void pingClick(int x,int y);
+    public abstract void physicsUpdate();
 }

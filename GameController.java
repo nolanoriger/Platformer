@@ -21,13 +21,13 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
         setTitle("PLATFORMER GAME");
         setSize(width, height);
         setVisible(true);
-        setResizable(true);
+        setResizable(false);
         addWindowListener(new WindowAdapter(){
             public void windowClosing(WindowEvent e){
                 System.exit(0);
             }
         });
-        gamePanel = new GamePanel(this);
+        gamePanel = new ParLostLevel(this);
         currentPanel = new TitlePanel(this);
         getContentPane().add(currentPanel);
         EventQueue.invokeLater(new Runnable(){
@@ -44,9 +44,9 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
         });
     }
     private void gameloop(){
+        if(currentPanel instanceof GamePanel) ((GamePanel)currentPanel).cameraUpdate();
         gameObjects = currentPanel.getGameObjects();
         control();
-        currentPanel.cameraUpdate();
         currentPanel.physicsUpdate();
         currentPanel.repaint();
     }
@@ -72,6 +72,7 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
             System.out.println("Error, no such panel");
         }
     }
+    public GamePanel getGamePanel(){ return gamePanel; }
     public void control(){
         if(currentPanel.equals(gamePanel)){
             controlChar(gamePanel);
