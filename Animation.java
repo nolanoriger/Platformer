@@ -3,10 +3,10 @@ import java.awt.Graphics2D;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 public class Animation extends GameObject{
-    private int frameWidth,frameHeight,numFrames,cycles,currentFrame,currentCycle;
+    private int frameWidth,frameHeight,numFrames,cycles,currentFrame,currentCycle,rate,counter;
     private boolean direction;
     private ImageIcon imgIcon;
-    public Animation(String src,JPanel jp,int x,int y,int width,int height,int numFrames,int cycles){
+    public Animation(String src,JPanel jp,int x,int y,int width,int height,int numFrames,int cycles,int animRate){
         super(jp,x,y,width*numFrames,height);
         frameWidth = width;
         frameHeight = height;
@@ -14,6 +14,7 @@ public class Animation extends GameObject{
         imgIcon = new ImageIcon(src);
         this.cycles = cycles;
         direction = true;
+        rate = animRate;
     }
     public int getFrameWidth(){ return frameWidth; }
     public int getFrameHeight(){ return frameHeight; }
@@ -45,7 +46,11 @@ public class Animation extends GameObject{
                     frameX+frameWidth, frameY+frameHeight,
                     null);
             }
-            currentFrame++;
+            if(counter%rate==0){
+                currentFrame++;
+                counter = 0;
+            }
+            counter++;
         }
     }
 }

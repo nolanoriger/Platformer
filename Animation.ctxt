@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Animation
-comment1.params=src\ jp\ x\ y\ width\ height\ numFrames\ cycles
-comment1.target=Animation(java.lang.String,\ javax.swing.JPanel,\ int,\ int,\ int,\ int,\ int,\ int)
+comment1.params=src\ jp\ x\ y\ width\ height\ numFrames\ cycles\ animRate
+comment1.target=Animation(java.lang.String,\ javax.swing.JPanel,\ int,\ int,\ int,\ int,\ int,\ int,\ int)
 comment2.params=
 comment2.target=int\ getFrameWidth()
 comment3.params=
