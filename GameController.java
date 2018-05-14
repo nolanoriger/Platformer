@@ -21,7 +21,7 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
         setTitle("PLATFORMER GAME");
         setSize(width, height);
         setVisible(true);
-        setResizable(false);
+        setResizable(true);
         addWindowListener(new WindowAdapter(){
             public void windowClosing(WindowEvent e){
                 System.exit(0);
@@ -77,7 +77,7 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
             controlChar(gamePanel);
         }
     }
-    public void controlChar(MyPanel gp){
+    public void controlChar(GamePanel gp){
         PlayerCharacter pc = gp.getPC();
         int speed = pc.getSpeed();
         int fallSpeed = pc.getFallSpeed();

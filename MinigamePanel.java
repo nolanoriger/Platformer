@@ -2,7 +2,6 @@ import java.awt.Graphics;
 import java.awt.Color;
 public class MinigamePanel extends MyPanel{
     private Camera c;
-    private PlayerCharacter pc;
     public MinigamePanel(GameController gc){
         super(gc);
         c = getCamera();
@@ -17,7 +16,6 @@ public class MinigamePanel extends MyPanel{
     public void cameraUpdate(){
         
     }
-    public PlayerCharacter getPC(){ return pc; }
     public void pingClick(int x,int y){
         getGameController().changePanel(GamePanel.class);
     }

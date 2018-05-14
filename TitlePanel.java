@@ -29,6 +29,6 @@ public class TitlePanel extends MyPanel{
         return pc;
     }
     public void pingClick(int x,int y){
-        getGameController().changePanel(GamePanel.class);
+        getGameController().changePanel(GameOverPanel.class);
     }
 }

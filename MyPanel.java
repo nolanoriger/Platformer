@@ -11,7 +11,6 @@ public abstract class MyPanel extends JPanel{
     }
     public GameController getGameController(){ return gc; }
     public  Camera getCamera(){ return cam; }
-    public abstract PlayerCharacter getPC();
     public abstract void pingClick(int x,int y);
     public abstract void cameraUpdate();
     public abstract void physicsUpdate();
