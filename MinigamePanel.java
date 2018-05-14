@@ -19,6 +19,6 @@ public class MinigamePanel extends MyPanel{
     }
     public PlayerCharacter getPC(){ return pc; }
     public void pingClick(int x,int y){
-        
+        getGameController().changePanel(GamePanel.class);
     }
 }
