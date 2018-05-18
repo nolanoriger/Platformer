@@ -10,7 +10,8 @@ public class FruitCatchMinigame extends MinigamePanel{
     id 2 = char */
     public FruitCatchMinigame(GameController gc){
         super(gc);
-        pc = new MinigameObject(this,0,getHeight()-150,100,50,2,"images/hands.png");
+        pc = new MinigameObject(this,0,0,100,50,2,"images/hands.png");
+        getGameObjects().add(pc);
         lives = 3;
     }
     public void paintComponent(Graphics g){
