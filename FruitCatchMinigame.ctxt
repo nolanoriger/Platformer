@@ -7,4 +7,6 @@ comment2.params=g
 comment2.target=void\ paintComponent(java.awt.Graphics)
 comment3.params=
 comment3.target=void\ physicsUpdate()
-numComments=4
+comment4.params=x\ y
+comment4.target=void\ pingClick(int,\ int)
+numComments=5

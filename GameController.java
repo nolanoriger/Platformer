@@ -128,7 +128,7 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
         else if(e.getKeyCode() == KeyEvent.VK_SPACE) spacePressed = false;
     }
     public void mouseClicked(MouseEvent e){
-        currentPanel.pingClick(e.getX(),e.getY());
+        currentPanel.pingClick(e.getX()-2,e.getY()-26);
     }
     public void keyTyped(KeyEvent e){}
     public void mousePressed(MouseEvent e){}

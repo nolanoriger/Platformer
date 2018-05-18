@@ -2,14 +2,16 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
 public class MinigameObject extends RigidBody{
-    int id;
-    String source;
+    private int id;
+    private String source;
     public MinigameObject(JPanel jp,int x,int y,int w,int h,int id,String src){
         super(jp,x,y,w,h);
         this.id = id;
         source = src;
         getColliders().add(new BoxCollider(this,0,0,w,h));
     }
+    public int getId(){ return id; }
+    public String getSource(){ return source; }
     public void draw(Graphics g){
         if(isVisible()){
             for(Collider c : getColliders()) c.draw(g);

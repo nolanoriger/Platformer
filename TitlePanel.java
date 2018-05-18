@@ -16,9 +16,12 @@ public class TitlePanel extends MyPanel{
         g.setFont(Font.decode("Comic Sans MS-50"));
         g.setColor(Color.black);
         g.drawString("PLATFORMER GAME", 150, 100);
+        //Change to nice looking button, x = getWidth()/2-50, y = getHeight()/2+50, width = 100, height = 50
+        g.setColor(Color.red);
+        g.fillRect(getWidth()/2-50,getHeight()/2+50,100,50);
     }
     public void physicsUpdate(){ }
     public void pingClick(int x,int y){
-        getGameController().changePanel(ParLostLevel.class);
+        if(x>=getWidth()/2-50&&x<=getWidth()/2+50&&y>=getHeight()/2+50&&y<=getHeight()/2+100) getGameController().changePanel(ParLostLevel.class);
     }
 }
