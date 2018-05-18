@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=FruitCatchMinigame
+comment1.params=gc
+comment1.target=FruitCatchMinigame(GameController)
+comment1.text=\ id\ 0\ \=\ good\r\n\ \ \ \ id\ 1\ \=\ bad\r\nid\ 2\ \=\ char
+comment2.params=g
+comment2.target=void\ paintComponent(java.awt.Graphics)
+comment3.params=
+comment3.target=void\ physicsUpdate()
+numComments=4

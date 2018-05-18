@@ -39,6 +39,6 @@ public class ParLostLevel extends GamePanel{
         gameObjects.add(new Platform(this,25,14,1,3));
         gameObjects.add(new Platform(this,27,15,1,2));
         gameObjects.add(new Platform(this,29,16,1,1));
-        gameObjects.add(new Minigame(this,0,0,100,100,MinigamePanel.class));
+        gameObjects.add(new Minigame(this,0,0,100,100,FruitCatchMinigame.class));
     }
 }

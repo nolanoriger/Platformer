@@ -2,7 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 import java.util.ArrayList;
-public class GamePanel extends MyPanel{
+public abstract class GamePanel extends MyPanel{
     private static final long serialVersionUID = 1L;
     private Platform plat;
     private PlayerCharacter pc;
