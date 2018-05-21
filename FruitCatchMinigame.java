@@ -10,7 +10,7 @@ public class FruitCatchMinigame extends MinigamePanel{
     id 2 = char */
     public FruitCatchMinigame(GameController gc){
         super(gc);
-        pc = new MinigameObject(this,0,0,100,50,2,"images/hands.png");
+        pc = new MinigameObject(this,0,getGameController().getHeight()-100,100,50,2,"images/hands.png");
         getGameObjects().add(pc);
         lives = 3;
     }
@@ -41,22 +41,29 @@ public class FruitCatchMinigame extends MinigamePanel{
         }
         ArrayList<MinigameObject> hit = hitTest(pc,MinigameObject.class);
         if(hit!=null){
-            for(int i = 0;i<hit.size();i++){
+            for(int i = 0;i>=0&&i<hit.size();i++){
                 MinigameObject mg = hit.get(i);
                 if(hit.get(i).getId()!=2){
                     if(hit.get(i).getId()==0) points++;
                     lives -= hit.get(i).getId();
                     getGameObjects().remove(hit.get(i));
-                    i--;
                 }
             }
         }
         if(points>=10){
+            getGameController().changePanel(getGameController().getGamePanel().getClass());
             //end game, send victory ping
         }
         else if(lives<=0){
+            getGameController().changePanel(getGameController().getGamePanel().getClass());
             //end game, no response
         }
+    }
+    public void control(boolean w,boolean a,boolean s,boolean d){
+        if(a) pc.move(-20,0);
+        if(d) pc.move(20,0);
+        if(pc.getX()<0) pc.setX(0);
+        if(pc.getX()>getGameController().getWidth()-pc.getWidth()) pc.setX(getGameController().getWidth()-pc.getWidth());
     }
     public void pingClick(int x,int y){
         

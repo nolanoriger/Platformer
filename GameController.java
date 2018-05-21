@@ -77,6 +77,9 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
         if(currentPanel.equals(gamePanel)){
             controlChar(gamePanel);
         }
+        else if(currentPanel instanceof MinigamePanel){
+            controlMini((MinigamePanel) currentPanel);
+        }
     }
     public void controlChar(GamePanel gp){
         PlayerCharacter pc = gp.getPC();
@@ -110,6 +113,9 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
         if(!aPressed&&!dPressed&&speed!=0) pc.setSpeed(speed-speed/Math.abs(speed));
         if(spacePressed&&gamePanel.hitTest(pc,Interaction.class)!=null&&gamePanel.isVisible()) ((Interaction)gp.hitTest(pc,Interaction.class).get(0)).func();
         pc.applyGravity();
+    }
+    public void controlMini(MinigamePanel mg){
+        mg.control(wPressed,aPressed,sPressed,dPressed);
     }
     public boolean getAPressed(){ return aPressed; }
     public boolean getDPressed(){ return dPressed; }
