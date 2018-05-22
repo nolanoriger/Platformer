@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Iterator;
 public class FruitCatchMinigame extends MinigamePanel{
@@ -26,6 +27,17 @@ public class FruitCatchMinigame extends MinigamePanel{
         counter--;
         for(GameObject obj : getGameObjects()){
             obj.draw(g);
+        }
+        g.setFont(Font.decode("Comic Sans MS-15"));
+        g.setColor(Color.black);
+        g.drawString("Points: "+points, getGameController().getWidth()-75, getHeight()-25);
+        g.setColor(Color.orange);
+        for(int i = 0;i<points;i++){
+            g.fillRect(750,300-30*i,45,25);
+        }
+        g.setColor(Color.red);
+        for(int i = 0;i<lives;i++){
+            g.fillRect(10+25*i,10,20,20);
         }
     }
     public void physicsUpdate(){
@@ -56,16 +68,13 @@ public class FruitCatchMinigame extends MinigamePanel{
         }
         else if(lives<=0){
             getGameController().changePanel(getGameController().getGamePanel().getClass());
-            //end game, no response
         }
     }
     public void control(boolean w,boolean a,boolean s,boolean d){
-        if(a) pc.move(-20,0);
-        if(d) pc.move(20,0);
+        if(a) pc.move(-15,0);
+        if(d) pc.move(15,0);
         if(pc.getX()<0) pc.setX(0);
         if(pc.getX()>getGameController().getWidth()-pc.getWidth()) pc.setX(getGameController().getWidth()-pc.getWidth());
     }
-    public void pingClick(int x,int y){
-        
-    }
+    public void pingClick(int x,int y){ }
 }

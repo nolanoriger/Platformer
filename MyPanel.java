@@ -5,6 +5,7 @@ public abstract class MyPanel extends JPanel{
     private GameController gc;
     private Camera cam;
     public MyPanel(GameController gc){
+        setLayout(null);
         gameObjects = new ArrayList();
         this.gc = gc;
         cam = new Camera(0,0);
