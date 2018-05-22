@@ -64,7 +64,7 @@ public class FruitCatchMinigame extends MinigamePanel{
         }
         if(points>=10){
             getGameController().changePanel(getGameController().getGamePanel().getClass());
-            //end game, send victory ping
+            ((ParLostLevel)(getGameController().getGamePanel())).gluttonyWin();
         }
         else if(lives<=0){
             getGameController().changePanel(getGameController().getGamePanel().getClass());
