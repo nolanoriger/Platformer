@@ -3,6 +3,7 @@ import java.awt.Graphics2D;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 public class PlayerCharacter extends RigidBody{
+    private int coins;
     private boolean grounded,direction;
     private String src;
     private static final int MAX_SPEED = 10;
@@ -17,6 +18,8 @@ public class PlayerCharacter extends RigidBody{
     public int getMaxSpeed(){ return MAX_SPEED; }
     public boolean getGrounded(){ return grounded; }
     public void setGrounded(boolean g){ grounded = g; }
+    public void addCoin(){ coins++; }
+    public int getCoin(){ return coins; }
     public void draw(Graphics g){
         if(isVisible()){
             for(Collider c : getColliders()) c.draw(g);
@@ -25,9 +28,9 @@ public class PlayerCharacter extends RigidBody{
             if(ap) direction = false;
             else if(dp) direction = true;
             if(grounded){
-                if(getSpeed()==0&&!anim.getImageSource().equals("images/idle.png")) anim = new Animation("images/idle.png",getPanel(),getX(),getY(),getWidth(),getHeight(),22,0,2);
-                else if(ap&&getSpeed()<0&&!anim.getImageSource().equals("images/run.png")) anim = new Animation("images/run.png",getPanel(),getX(),getY(),getWidth(),getHeight(),27,0,1);
-                else if(dp&&getSpeed()>0&&!anim.getImageSource().equals("images/run.png")) anim = new Animation("images/run.png",getPanel(),getX(),getY(),getWidth(),getHeight(),27,0,1);
+                if(getSpeed()==0&&!anim.getImageSource().equals("images/idle_"+coins+".png")) anim = new Animation("images/idle_"+coins+".png",getPanel(),getX(),getY(),getWidth(),getHeight(),22,0,2);
+                else if(ap&&getSpeed()<0&&!anim.getImageSource().equals("images/run_"+coins+".png")) anim = new Animation("images/run_"+coins+".png",getPanel(),getX(),getY(),getWidth(),getHeight(),27,0,1);
+                else if(dp&&getSpeed()>0&&!anim.getImageSource().equals("images/run_"+coins+".png")) anim = new Animation("images/run_"+coins+".png",getPanel(),getX(),getY(),getWidth(),getHeight(),27,0,1);
                 else if(!ap&&!dp&&!anim.getImageSource().equals("images/idle.png")) anim = new Animation("images/idle.png",getPanel(),getX(),getY(),getWidth(),getHeight(),22,0,2);
             }
             else{

@@ -12,32 +12,11 @@ import java.awt.event.ActionEvent;
 public class TitlePanel extends MyPanel{
     private static final long serialVersionUID = 1L;
     private Camera c;
-    private JButton start,credits;
-    private ImageIcon icon;
+    private JButton credits;
+    private ImageIcon img;
     public TitlePanel(GameController gc){
         super(gc);
         c = getCamera();
-        start = new JButton("Start");
-        start.setFocusable(false);
-        start.setBounds(325,219,150,24);//325 219 150 24
-        start.setVerticalAlignment(SwingConstants.CENTER);
-        start.setHorizontalAlignment(SwingConstants.CENTER);
-        icon = new ImageIcon("images/playbutton.png");
-        start.setIcon(icon);
-        credits = new JButton("Credits");
-        credits.setFocusable(false);
-        credits.setBounds(325,324,150,24);//325 324 150 24
-        credits.setVerticalAlignment(SwingConstants.CENTER);
-        credits.setHorizontalAlignment(SwingConstants.CENTER);
-        icon = new ImageIcon("images/creditsbutton.png");
-        credits.setIcon(icon);
-        add(start);
-        add(credits);
-        start.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                getGameController().changePanel(ParLostLevel.class);
-            }
-        });
     }
     public void paintComponent(Graphics g){
         g.setColor(Color.white);
@@ -45,7 +24,13 @@ public class TitlePanel extends MyPanel{
         g.setFont(Font.decode("Comic Sans MS-50"));
         g.setColor(Color.black);
         g.drawString("PLATFORMER GAME", 150, 100);
+        img = new ImageIcon("images/playbutton.png");
+        g.drawImage(img.getImage(),325,219,150,24,null);
+        img = new ImageIcon("images/creditsbutton.png");
+        g.drawImage(img.getImage(),325,324,150,24,null);
     }
     public void physicsUpdate(){ }
-    public void pingClick(int x,int y){ }
+    public void pingClick(int x,int y){
+        if(x>=325&&x<=325+150&&y>=219&&y<=219+24) getGameController().changePanel(ParLostLevel.class);
+    }
 }
