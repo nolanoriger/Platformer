@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=CreditsPanel
+comment1.params=gc
+comment1.target=CreditsPanel(GameController)
+comment2.params=g
+comment2.target=void\ paintComponent(java.awt.Graphics)
+comment3.params=
+comment3.target=void\ physicsUpdate()
+comment4.params=x\ y
+comment4.target=void\ pingClick(int,\ int)
+numComments=5

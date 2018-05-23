@@ -7,7 +7,6 @@ public abstract class MinigamePanel extends MyPanel{
         c = getCamera();
     }
     public void paintComponent(Graphics g){
-        super.paintComponent(g);
         g.setColor(Color.gray);
         g.fillRect(0,0,getWidth(),getHeight());
     }

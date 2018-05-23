@@ -31,5 +31,6 @@ public class TitlePanel extends MyPanel{
     public void physicsUpdate(){ }
     public void pingClick(int x,int y){
         if(x>=325&&x<=325+150&&y>=219-18&&y<=219+24-18) getGameController().changePanel(ParLostLevel.class);
+        if(x>=325&&x<=325+150&&y>=324-26&&y<=324-26+24) getGameController().changePanel(CreditsPanel.class);
     }
 }

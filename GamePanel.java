@@ -17,7 +17,6 @@ public abstract class GamePanel extends MyPanel{
         gameObjects.add(pc);
     }
     public void paintComponent(Graphics g){
-        super.paintComponent(g);
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(0,0,800,400);
         g.translate(-c.getX(),-c.getY());

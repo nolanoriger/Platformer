@@ -9,7 +9,7 @@ public class ParLostLevel extends GamePanel{
         gameObjects.add(new Platform(this,0,3,7,10));
         gameObjects.add(new Platform(this,7,2,4,10));
         gameObjects.add(new Platform(this,11,4,11,10));
-        gameObjects.add(new Platform(this,16,0,3,1));
+        gameObjects.add(new Platform(this,15,1,3,1));
         gameObjects.add(new Platform(this,22,3,2,10));
         gameObjects.add(new Platform(this,24,2,2,10));
         gameObjects.add(new Platform(this,26,1,5,10));
