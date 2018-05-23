@@ -21,16 +21,15 @@ public class TitlePanel extends MyPanel{
     public void paintComponent(Graphics g){
         g.setColor(Color.white);
         g.fillRect(0,0,getWidth(),getHeight());
-        g.setFont(Font.decode("Comic Sans MS-50"));
-        g.setColor(Color.black);
-        g.drawString("PLATFORMER GAME", 150, 100);
+        img = new ImageIcon("images/titlescreen.png");
+        g.drawImage(img.getImage(),0,0,getWidth(),getHeight(),null);
         img = new ImageIcon("images/playbutton.png");
-        g.drawImage(img.getImage(),325,219,150,24,null);
+        g.drawImage(img.getImage(),325,219-18,150,24,null);
         img = new ImageIcon("images/creditsbutton.png");
-        g.drawImage(img.getImage(),325,324,150,24,null);
+        g.drawImage(img.getImage(),325,324-26,150,24,null);
     }
     public void physicsUpdate(){ }
     public void pingClick(int x,int y){
-        if(x>=325&&x<=325+150&&y>=219&&y<=219+24) getGameController().changePanel(ParLostLevel.class);
+        if(x>=325&&x<=325+150&&y>=219-18&&y<=219+24-18) getGameController().changePanel(ParLostLevel.class);
     }
 }

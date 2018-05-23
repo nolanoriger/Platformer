@@ -4,7 +4,7 @@ public class ParLostLevel extends GamePanel{
     public ParLostLevel(GameController gc){
         super(gc);
         //Construct the level
-        Eve = new Platform(this,52,-2,1,2);
+        Eve = new Platform(this,53,-2,1,2);
         ArrayList<GameObject> gameObjects = getGameObjects();
         gameObjects.add(new Platform(this,0,3,7,10));
         gameObjects.add(new Platform(this,7,2,4,10));
@@ -13,13 +13,15 @@ public class ParLostLevel extends GamePanel{
         gameObjects.add(new Platform(this,22,3,2,10));
         gameObjects.add(new Platform(this,24,2,2,10));
         gameObjects.add(new Platform(this,26,1,5,10));
-        gameObjects.add(new Platform(this,30,0,3,10));
-        gameObjects.add(new Platform(this,36,-1,3,1));
-        gameObjects.add(new Platform(this,33,3,10,10));
-        gameObjects.add(new Platform(this,46,3,6,10));
-        gameObjects.add(new Platform(this,52,0,2,10));
-        gameObjects.add(new Minigame(this,49*50,1*50,2*50,2*50,FruitCatchMinigame.class));
+        gameObjects.add(new Platform(this,31,0,3,10));
+        gameObjects.add(new Platform(this,38,-1,3,1));
+        gameObjects.add(new Platform(this,34,2,2,10));
+        gameObjects.add(new Platform(this,36,3,8,10));
+        gameObjects.add(new Platform(this,47,3,6,10));
+        gameObjects.add(new Platform(this,53,0,2,10));
+        gameObjects.add(new Minigame(this,49*64,1*64,2*64,2*64,FruitCatchMinigame.class));
         gameObjects.add(Eve);
+        gameObjects.add(new Coin(this,0,0));
         /*
         gameObjects.add(new Platform(this,0,0,1,18));
         gameObjects.add(new Platform(this,1,2,10,1));

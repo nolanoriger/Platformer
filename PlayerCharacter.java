@@ -31,7 +31,7 @@ public class PlayerCharacter extends RigidBody{
                 if(getSpeed()==0&&!anim.getImageSource().equals("images/idle_"+coins+".png")) anim = new Animation("images/idle_"+coins+".png",getPanel(),getX(),getY(),getWidth(),getHeight(),22,0,2);
                 else if(ap&&getSpeed()<0&&!anim.getImageSource().equals("images/run_"+coins+".png")) anim = new Animation("images/run_"+coins+".png",getPanel(),getX(),getY(),getWidth(),getHeight(),27,0,1);
                 else if(dp&&getSpeed()>0&&!anim.getImageSource().equals("images/run_"+coins+".png")) anim = new Animation("images/run_"+coins+".png",getPanel(),getX(),getY(),getWidth(),getHeight(),27,0,1);
-                else if(!ap&&!dp&&!anim.getImageSource().equals("images/idle.png")) anim = new Animation("images/idle.png",getPanel(),getX(),getY(),getWidth(),getHeight(),22,0,2);
+                else if(!ap&&!dp&&!anim.getImageSource().equals("images/idle_"+coins+".png")) anim = new Animation("images/idle_"+coins+".png",getPanel(),getX(),getY(),getWidth(),getHeight(),22,0,2);
             }
             else{
                 if(!anim.getImageSource().equals("images/fall.png")) anim = new Animation("images/fall.png",getPanel(),getX(),getY(),getWidth(),getHeight(),10,0,1);
