@@ -3,7 +3,7 @@ import java.awt.Graphics2D;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 public class PlayerCharacter extends RigidBody{
-    private int coins;
+    private int coins = 1;
     private boolean grounded,direction;
     private String src;
     private static final int MAX_SPEED = 10;

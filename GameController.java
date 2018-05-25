@@ -87,7 +87,7 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
         int fallSpeed = pc.getFallSpeed();
         boolean grounded = pc.getGrounded();
         if(wPressed&&grounded&&jump){
-            pc.setFallSpeed(-20);
+            pc.setFallSpeed(-21);
             grounded = false;
             jump = false;
             EventQueue.invokeLater(new Runnable(){

@@ -11,6 +11,9 @@ public class Coin extends Interaction{
     }
     public void draw(Graphics g){
         if(isVisible()){
+            for(Collider c : getColliders()){
+                c.draw(g);
+            }
             ImageIcon img = new ImageIcon("images/coin.png");
             g.drawImage(img.getImage(),getX(),getY(),getWidth(),getHeight(),null);
         }
