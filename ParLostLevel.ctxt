@@ -4,4 +4,6 @@ comment1.params=gc
 comment1.target=ParLostLevel(GameController)
 comment2.params=
 comment2.target=void\ gluttonyWin()
-numComments=3
+comment3.params=
+comment3.target=void\ lustWin()
+numComments=4

@@ -18,11 +18,11 @@ public class FruitCatchMinigame extends MinigamePanel{
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         if(counter<=0){
-            counter = (int)(Math.random()*75+25);
-            int id = (int)(Math.random()*2);
+            counter = (int)(Math.random()*40+10);
+            int id = (int)(Math.random()*3);
             String src = "images/cake.png";
-            if(id==0) src = "images/fruit_1.png";
-            getGameObjects().add(new MinigameObject(this,(int)(Math.random()*(getWidth()-50)),-50,50,50,id,src));
+            if(id%2==0) src = "images/fruit_1.png";
+            getGameObjects().add(new MinigameObject(this,(int)(Math.random()*(getWidth()-50)),-50,50,50,id%2,src));
         }
         counter--;
         for(GameObject obj : getGameObjects()){
@@ -62,12 +62,13 @@ public class FruitCatchMinigame extends MinigamePanel{
                 }
             }
         }
-        if(points>=10){
+        if(points>=0){
             getGameController().changePanel(getGameController().getGamePanel().getClass());
             ((ParLostLevel)(getGameController().getGamePanel())).gluttonyWin();
         }
         else if(lives<=0){
-            getGameController().changePanel(getGameController().getGamePanel().getClass());
+            getGameController().changePanel(GameOverPanel.class);
+            ((GameOverPanel)getGameController().getCurrentPanel()).setScreen("images/gameoverscreen_gluttony.png");
         }
     }
     public void control(boolean w,boolean a,boolean s,boolean d){

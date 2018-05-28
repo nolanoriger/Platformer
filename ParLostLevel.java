@@ -1,10 +1,14 @@
 import java.util.ArrayList;
 public class ParLostLevel extends GamePanel{
-    private Platform Eve;
+    private Platform Eve,EveChoice;
+    private Interaction LoveEve,LustEve;
     public ParLostLevel(GameController gc){
         super(gc);
         //Construct the level
         Eve = new Platform(this,53,-2,1,2);
+        LoveEve = new Eve(this,59*64,-3*64,64,128,1);
+        LustEve = new Eve(this,59*64,64,64,128,0);
+        EveChoice = new Platform(this,61,-5,2,8);
         ArrayList<GameObject> gameObjects = getGameObjects();
         gameObjects.add(new Platform(this,0,3,7,10));
         gameObjects.add(new Platform(this,7,2,4,10));
@@ -19,46 +23,38 @@ public class ParLostLevel extends GamePanel{
         gameObjects.add(new Platform(this,36,3,8,10));
         gameObjects.add(new Platform(this,47,3,6,10));
         gameObjects.add(new Platform(this,53,0,2,10));
+        gameObjects.add(new Platform(this,58,-1,3,1));
+        gameObjects.add(new Platform(this,76,2,1,1));
+        gameObjects.add(new Platform(this,77,1,1,2));
+        gameObjects.add(new Platform(this,80,-1,3,1));
+        gameObjects.add(new Platform(this,91,2,1,1));
+        gameObjects.add(new Platform(this,94,1,1,2));
+        gameObjects.add(new Platform(this,97,0,1,3));
+        gameObjects.add(new Platform(this,100,1,1,2));
+        gameObjects.add(new Platform(this,103,2,1,1));
+        gameObjects.add(new Platform(this,55,3,58,10));
+        gameObjects.add(new Platform(this,58,-5,3,1));
         gameObjects.add(new Minigame(this,49*64,1*64,2*64,2*64,FruitCatchMinigame.class));
         gameObjects.add(Eve);
-        gameObjects.add(new Coin(this,0,0));
-        /*
-        gameObjects.add(new Platform(this,0,0,1,18));
-        gameObjects.add(new Platform(this,1,2,10,1));
-        gameObjects.add(new Platform(this,7,1,4,1));
-        gameObjects.add(new Platform(this,1,3,28,2));
-        gameObjects.add(new Platform(this,29,4,8,1));
-        gameObjects.add(new Platform(this,31,1,3,1));
-        gameObjects.add(new Platform(this,14,0,3,1));
-        gameObjects.add(new Platform(this,19,2,10,1));
-        gameObjects.add(new Platform(this,21,1,8,1));
-        gameObjects.add(new Platform(this,27,0,2,1));
-        gameObjects.add(new Platform(this,42,0,2,1));
-        gameObjects.add(new Platform(this,3,10,38,1));
-        gameObjects.add(new Platform(this,13,7,1,3));
-        gameObjects.add(new Platform(this,14,8,1,2));
-        gameObjects.add(new Platform(this,15,9,1,1));
-        gameObjects.add(new Platform(this,19,7,4,1));
-        gameObjects.add(new Platform(this,28,9,1,1));
-        gameObjects.add(new Platform(this,29,8,1,2));
-        gameObjects.add(new Platform(this,30,7,1,3));
-        gameObjects.add(new Platform(this,33,7,1,3));
-        gameObjects.add(new Platform(this,34,8,1,2));
-        gameObjects.add(new Platform(this,35,9,1,1));
-        gameObjects.add(new Platform(this,4,15,1,2));
-        gameObjects.add(new Platform(this,5,16,1,1));
-        gameObjects.add(new Platform(this,8,16,1,1));
-        gameObjects.add(new Platform(this,9,15,1,2));
-        gameObjects.add(new Platform(this,1,17,40,1));
-        gameObjects.add(new Platform(this,12,13,2,1));
-        gameObjects.add(new Platform(this,16,15,1,2));
-        gameObjects.add(new Platform(this,17,16,1,1));
-        gameObjects.add(new Platform(this,21,16,1,1));
-        gameObjects.add(new Platform(this,23,15,1,2));
-        gameObjects.add(new Platform(this,25,14,1,3));
-        gameObjects.add(new Platform(this,27,15,1,2));
-        gameObjects.add(new Platform(this,29,16,1,1));
-        gameObjects.add(new Minigame(this,0,0,100,100,FruitCatchMinigame.class));*/
+        gameObjects.add(LoveEve);
+        gameObjects.add(LustEve);
+        gameObjects.add(EveChoice);
+        gameObjects.add(new FightClub(this,105*64,64,64,2*64));
+        gameObjects.add(new Coin(this,9*64,(int)(1.75*64)));
+        gameObjects.add(new Coin(this,16*64,(int)(0.75*64)));
+        gameObjects.add(new Coin(this,24*64,(int)(1.75*64)));
+        gameObjects.add(new Coin(this,39*64,(int)(2.75*64)));
+        gameObjects.add(new Coin(this,92*64+32,(int)(2.75*64)));
+        gameObjects.add(new Coin(this,95*64+32,(int)(2.75*64)));
+        gameObjects.add(new Coin(this,98*64+32,(int)(2.75*64)));
+        gameObjects.add(new Coin(this,101*64+32,(int)(2.75*64)));
+        gameObjects.add(new KillBox(this,-10*64,10*64,100*64,10*64));
+        gameObjects.add(new MinigameObject(this,0,64,64,3*64,0,"images/heavengate.png"));
+        gameObjects.add(new MinigameObject(this,112*64,64,64,3*64,0,"images/hellgate.png"));
     }
     public void gluttonyWin(){ getGameObjects().remove(Eve); }
+    public void lustWin(){
+        getGameObjects().remove(LustEve);
+        getGameObjects().remove(EveChoice);
+    }
 }

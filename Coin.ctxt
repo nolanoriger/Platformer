@@ -2,8 +2,6 @@
 comment0.target=Coin
 comment1.params=jp\ x\ y
 comment1.target=Coin(javax.swing.JPanel,\ int,\ int)
-comment2.params=
-comment2.target=void\ func()
-comment3.params=g
-comment3.target=void\ draw(java.awt.Graphics)
-numComments=4
+comment2.params=g
+comment2.target=void\ draw(java.awt.Graphics)
+numComments=3

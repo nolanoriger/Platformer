@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Eve
+comment1.params=jp\ x\ y\ w\ h\ id
+comment1.target=Eve(javax.swing.JPanel,\ int,\ int,\ int,\ int,\ int)
+comment2.params=
+comment2.target=void\ func()
+comment3.params=g
+comment3.target=void\ draw(java.awt.Graphics)
+numComments=4

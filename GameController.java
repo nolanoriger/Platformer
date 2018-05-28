@@ -51,7 +51,6 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
         currentPanel.repaint();
     }
     public void changePanel(Class<? extends MyPanel> varClass){
-        MyPanel p;
         try{
             if(!varClass.isInstance(gamePanel)){
                 currentPanel.setVisible(false);
@@ -72,7 +71,21 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
             System.out.println("Error, no such panel");
         }
     }
+    public void changeResetPanel(Class<? extends MyPanel> varClass){
+        try{
+            if(varClass.equals(ParLostLevel.class)) gamePanel = new ParLostLevel(this);
+            currentPanel.setVisible(false);
+            currentPanel = gamePanel;
+            currentPanel.setVisible(true);
+            getContentPane().removeAll();
+            getContentPane().add(currentPanel);
+        }
+        catch(Exception NoSuchMethodException){
+            System.out.println("Error, no such panel");
+        }
+    }
     public GamePanel getGamePanel(){ return gamePanel; }
+    public MyPanel getCurrentPanel(){ return currentPanel; }
     public void control(){
         if(currentPanel.equals(gamePanel)){
             controlChar(gamePanel);
@@ -112,6 +125,19 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
         }
         if(!aPressed&&!dPressed&&speed!=0) pc.setSpeed(speed-speed/Math.abs(speed));
         if(spacePressed&&gamePanel.hitTest(pc,Interaction.class)!=null&&gamePanel.isVisible()) ((Interaction)gp.hitTest(pc,Interaction.class).get(0)).func();
+        if(gamePanel.hitTest(pc,Coin.class)!=null){
+            changePanel(GameOverPanel.class);
+            ((GameOverPanel)currentPanel).setScreen("images/gameoverscreen_greed.png");
+        }
+        if(gamePanel.hitTest(pc,Couch.class)!=null){
+            changePanel(GameOverPanel.class);
+            ((GameOverPanel)currentPanel).setScreen("images/gameoverscreen_sloth.png");
+        }
+        if(gamePanel.hitTest(pc,Mirror.class)!=null){
+            changePanel(GameOverPanel.class);
+            ((GameOverPanel)currentPanel).setScreen("images/gameoverscreen_pride.png");
+        }
+        if(gamePanel.hitTest(pc,KillBox.class)!=null) changePanel(GameOverPanel.class);
         pc.applyGravity();
     }
     public void controlMini(MinigamePanel mg){

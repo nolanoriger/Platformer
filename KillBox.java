@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class KillBox extends GameObject{
     public KillBox(JPanel jp,int x,int y,int w,int h){
         super(jp,x,y,w,h);
-        getColliders().add(new BoxCollider(this,x,y,w,h));
+        getColliders().add(new BoxCollider(this,0,0,w,h));
         setVisible(true);
     }
     public void draw(Graphics g){
