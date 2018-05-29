@@ -39,7 +39,7 @@ public abstract class GamePanel extends MyPanel{
         else if(pc.getX()+pc.getWidth()/2-x<getWidth()*2/5) x = pc.getX()-getWidth()*2/5+pc.getWidth()/2;
         y = pc.getY()+pc.getHeight()/2-getHeight()/2;
         if(x<0) x = 0;
-        else if(x>7360-pc.getWidth()/2+getWidth()) x = 7360-pc.getWidth()/2+getWidth();
+        else if(x>7360+pc.getWidth()/2-getWidth()) x = 7360+pc.getWidth()/2-getWidth();
         if(y<-4*64) y = -4*64;
         else if(y>2*64) y = 2*64;
         c.setLocation(x,y);
