@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=WrathMinigame
+comment1.params=gc
+comment1.target=WrathMinigame(GameController)
+comment2.params=g
+comment2.target=void\ paintComponent(java.awt.Graphics)
+comment3.params=
+comment3.target=void\ physicsUpdate()
+comment4.params=w\ a\ s\ d
+comment4.target=void\ control(boolean,\ boolean,\ boolean,\ boolean)
+comment5.params=x\ y
+comment5.target=void\ pingClick(int,\ int)
+numComments=6
