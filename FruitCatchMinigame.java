@@ -3,6 +3,7 @@ import java.awt.Graphics;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.ImageIcon;
 public class FruitCatchMinigame extends MinigamePanel{
     private int counter,points,lives;
     private MinigameObject pc;
@@ -11,18 +12,20 @@ public class FruitCatchMinigame extends MinigamePanel{
     id 2 = char */
     public FruitCatchMinigame(GameController gc){
         super(gc);
-        pc = new MinigameObject(this,0,getGameController().getHeight()-100,100,50,2,"images/hands.png");
+        pc = new MinigameObject(this,0,getGameController().getHeight()-100,100,50,2,"images/bowl.png");
         getGameObjects().add(pc);
         lives = 3;
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
+        ImageIcon img = new ImageIcon("images/gluttonyscreen.png");
+        g.drawImage(img.getImage(),0,0,getGameController().getWidth(),getGameController().getHeight(),null);
         if(counter<=0){
             counter = (int)(Math.random()*40+10);
             int id = (int)(Math.random()*3);
             String src = "images/cake.png";
             if(id%2==0) src = "images/fruit_1.png";
-            getGameObjects().add(new MinigameObject(this,(int)(Math.random()*(getWidth()-50)),-50,50,50,id%2,src));
+            getGameObjects().add(new MinigameObject(this,(int)(Math.random()*(getWidth()-125)),-50,50,50,id%2,src));
         }
         counter--;
         for(GameObject obj : getGameObjects()){
@@ -35,9 +38,9 @@ public class FruitCatchMinigame extends MinigamePanel{
         for(int i = 0;i<points;i++){
             g.fillRect(750,300-30*i,45,25);
         }
-        g.setColor(Color.red);
+        img = new ImageIcon("images/heart.png");
         for(int i = 0;i<lives;i++){
-            g.fillRect(10+25*i,10,20,20);
+            g.drawImage(img.getImage(),10+25*i,10,20,20,null);
         }
     }
     public void physicsUpdate(){
@@ -62,7 +65,7 @@ public class FruitCatchMinigame extends MinigamePanel{
                 }
             }
         }
-        if(points>=0){
+        if(points>=10){
             getGameController().changePanel(getGameController().getGamePanel().getClass());
             ((ParLostLevel)(getGameController().getGamePanel())).gluttonyWin();
         }
@@ -75,7 +78,7 @@ public class FruitCatchMinigame extends MinigamePanel{
         if(a) pc.move(-15,0);
         if(d) pc.move(15,0);
         if(pc.getX()<0) pc.setX(0);
-        if(pc.getX()>getGameController().getWidth()-pc.getWidth()) pc.setX(getGameController().getWidth()-pc.getWidth());
+        if(pc.getX()>getGameController().getWidth()-pc.getWidth()-80) pc.setX(getGameController().getWidth()-pc.getWidth()-80);
     }
     public void pingClick(int x,int y){ }
 }

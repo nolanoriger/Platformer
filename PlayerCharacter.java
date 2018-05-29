@@ -11,8 +11,10 @@ public class PlayerCharacter extends RigidBody{
     public PlayerCharacter(JPanel jp,int x,int y,String src){
         super(jp,x,y,72,81);
         this.src = src;
-        getColliders().add(new CircleCollider(this,0,0,getWidth()/2));
-        getColliders().add(new BoxCollider(this,0,getHeight()/2,getWidth(),getHeight()/2));
+        getColliders().add(new CircleCollider(this,20,0,getWidth()/2-20));
+        getColliders().add(new BoxCollider(this,20,getHeight()/2,getWidth()-40,getHeight()/2));
+        /*getColliders().add(new CircleCollider(this,5,5,31));
+        getColliders().add(new BoxCollider(this,5,40,62,40));*/
         anim = new Animation("images/idle.png",jp,x,y,72,81,10,0,2);
     }
     public int getMaxSpeed(){ return MAX_SPEED; }

@@ -10,7 +10,8 @@ public class ParLostLevel extends GamePanel{
         LustEve = new Eve(this,59*64,64,64,128,0);
         EveChoice = new Platform(this,61,-8,2,11);
         ArrayList<GameObject> gameObjects = getGameObjects();
-        gameObjects.add(new MinigameObject(this,0,-4*64,7360,1216,0,"images/platforms.png"));
+        gameObjects.add(new MinigameObject(this,0,-4*64-6,7360,1216,0,"images/platforms.png"));
+        gameObjects.add(new Platform(this,-2,-5,2,20));
         gameObjects.add(new Platform(this,0,3,7,10));
         gameObjects.add(new Platform(this,7,2,4,10));
         gameObjects.add(new Platform(this,11,4,11,10));
@@ -33,13 +34,13 @@ public class ParLostLevel extends GamePanel{
         gameObjects.add(new Platform(this,97,0,1,3));
         gameObjects.add(new Platform(this,100,1,1,2));
         gameObjects.add(new Platform(this,103,2,1,1));
-        gameObjects.add(new Platform(this,55,3,58,10));
+        gameObjects.add(new Platform(this,55,3,60,10));
+        gameObjects.add(new Platform(this,115,-5,2,20));
         gameObjects.add(new Minigame(this,49*64,1*64,2*64,2*64,FruitCatchMinigame.class));
         gameObjects.add(Eve);
         gameObjects.add(LoveEve);
         gameObjects.add(LustEve);
         gameObjects.add(EveChoice);
-        gameObjects.add(new FightClub(this,105*64,64,64,2*64));
         gameObjects.add(new Coin(this,8*64,(int)(1.75*64)));
         gameObjects.add(new Coin(this,16*64,(int)(0.75*64)));
         gameObjects.add(new Coin(this,24*64,(int)(1.75*64)));
@@ -50,8 +51,12 @@ public class ParLostLevel extends GamePanel{
         gameObjects.add(new Coin(this,101*64+32,(int)(2.75*64)));
         gameObjects.add(new KillBox(this,-10*64,10*64,100*64,10*64));
         gameObjects.add(new MinigameObject(this,-32,64,64,3*64,0,"images/heavengate.png"));
-        gameObjects.add(new MinigameObject(this,112*64,64,64,3*64,0,"images/hellgate.png"));
-        gameObjects.add(new Mirror(this,38*64,-3*64,64,2*64));
+        gameObjects.add(new MinigameObject(this,115*64,64,64,3*64,0,"images/hellgate.png"));
+        gameObjects.add(new Mirror(this,40*64,-3*64,64,2*64));
+        gameObjects.add(new Couch(this,65*64,2*64,2*64,64));
+        gameObjects.add(new Couch(this,70*64,2*64,2*64,64));
+        gameObjects.add(new Envy(this,80*64+32,-3*64,2*64,2*64));
+        gameObjects.add(new FightClub(this,107*64+32,64,64,2*64));
         gameObjects.add(getPC());
     }
     public void gluttonyWin(){ getGameObjects().remove(Eve); }

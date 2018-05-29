@@ -10,7 +10,7 @@ public abstract class GamePanel extends MyPanel{
     private int lives = 3;
     public GamePanel(GameController gc){
         super(gc);
-        pc = new PlayerCharacter(this,200,0,"images/pc_singleframe.png");
+        pc = new PlayerCharacter(this,80,0,"images/pc_singleframe.png");
         c = getCamera();
         c.setLocation(pc.getX()-getWidth()/2,pc.getY()-getHeight()/2+pc.getHeight()/2);
         ArrayList gameObjects = getGameObjects();
@@ -37,7 +37,12 @@ public abstract class GamePanel extends MyPanel{
         int y = c.getY();
         if(pc.getX()+pc.getWidth()/2-x>getWidth()*3/5) x = pc.getX()-getWidth()*3/5+pc.getWidth()/2;
         else if(pc.getX()+pc.getWidth()/2-x<getWidth()*2/5) x = pc.getX()-getWidth()*2/5+pc.getWidth()/2;
-        c.setLocation(x,pc.getY()+pc.getHeight()/2-getHeight()/2);
+        y = pc.getY()+pc.getHeight()/2-getHeight()/2;
+        if(x<0) x = 0;
+        else if(x>7360-pc.getWidth()/2+getWidth()) x = 7360-pc.getWidth()/2+getWidth();
+        if(y<-4*64) y = -4*64;
+        else if(y>2*64) y = 2*64;
+        c.setLocation(x,y);
     }
     public PlayerCharacter getPC(){ return pc; }
     public void pingClick(int x,int y){ }

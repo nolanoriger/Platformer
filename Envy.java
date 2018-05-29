@@ -1,7 +1,7 @@
 import javax.swing.JPanel;
 import java.awt.Graphics;
-public class Couch extends GameObject{
-    public Couch(JPanel jp,int x,int y,int w,int h){
+public class Envy extends GameObject{
+    public Envy(JPanel jp,int x,int y,int w,int h){
         super(jp,x,y,w,h);
         getColliders().add(new BoxCollider(this,0,0,w,h));
     }

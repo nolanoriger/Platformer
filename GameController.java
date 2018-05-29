@@ -18,7 +18,7 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
     public GameController(int width, int height){
         addKeyListener(this);
         addMouseListener(this);
-        setTitle("PLATFORMER GAME");
+        setTitle("Paradise Lost");
         setSize(width, height);
         setVisible(true);
         setResizable(false);
@@ -136,6 +136,10 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
         if(gamePanel.hitTest(pc,Mirror.class)!=null){
             changePanel(GameOverPanel.class);
             ((GameOverPanel)currentPanel).setScreen("images/gameoverscreen_pride.png");
+        }
+        if(gamePanel.hitTest(pc,Envy.class)!=null){
+            changePanel(GameOverPanel.class);
+            ((GameOverPanel)currentPanel).setScreen("images/gameoverscreen_envy.png");
         }
         if(gamePanel.hitTest(pc,KillBox.class)!=null) changePanel(GameOverPanel.class);
         pc.applyGravity();

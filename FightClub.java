@@ -6,7 +6,7 @@ public class FightClub extends Interaction{
         super(jp,x,y,w,h);
     }
     public void func(){
-        
+        ((MyPanel)getPanel()).getGameController().changePanel(WrathMinigame.class);
     }
     public void draw(Graphics g){
         if(isVisible()){
