@@ -2,15 +2,9 @@ import java.util.ArrayList;
 public class ParLostLevel extends GamePanel{
     private Platform Eve,EveChoice;
     private Interaction LoveEve,LustEve;
+    private Minigame Gluttony = new Minigame(this,49*64,1*64,2*64,2*64,FruitCatchMinigame.class);
     private MinigameObject treeBlock = new MinigameObject(this,53*64,-64,64,64,0,"images/box.png");
-    private MinigameObject eveBlock1 = new MinigameObject(this,61*64,-128,64,64,0,"images/box.png");
-    private MinigameObject eveBlock2 = new MinigameObject(this,61*64,-64,64,64,0,"images/box.png");
-    private MinigameObject eveBlock3 = new MinigameObject(this,61*64,-128,64,64,0,"images/box.png");
-    private MinigameObject eveBlock4 = new MinigameObject(this,61*64,0,64,64,0,"images/box.png");
-    private MinigameObject eveBlock5 = new MinigameObject(this,61*64,64,64,64,0,"images/box.png");
-    private MinigameObject eveBlock6 = new MinigameObject(this,61*64,128,64,64,0,"images/box.png");
-    private MinigameObject eveBlock7 = new MinigameObject(this,61*64,-128-64,64,64,0,"images/box.png");
-    private MinigameObject eveBlock8 = new MinigameObject(this,61*64,-128*2,64,64,0,"images/box.png");
+    private MinigameObject eveBlock = new MinigameObject(this,61*64,-64*5,64,8*64,0,"images/boxwall.png");
     public ParLostLevel(GameController gc){
         super(gc);
         //Construct the level
@@ -45,7 +39,7 @@ public class ParLostLevel extends GamePanel{
         gameObjects.add(new Platform(this,103,2,1,1));
         gameObjects.add(new Platform(this,55,3,60,10));
         gameObjects.add(new Platform(this,115,-5,2,20));
-        gameObjects.add(new Minigame(this,49*64,1*64,2*64,2*64,FruitCatchMinigame.class));
+        gameObjects.add(Gluttony);
         gameObjects.add(Eve);
         gameObjects.add(LoveEve);
         gameObjects.add(LustEve);
@@ -61,36 +55,23 @@ public class ParLostLevel extends GamePanel{
         gameObjects.add(new KillBox(this,-10*64,10*64,100*64,10*64));
         gameObjects.add(new MinigameObject(this,-32,64,64,3*64,0,"images/heavengate.png"));
         gameObjects.add(new MinigameObject(this,115*64,64,64,3*64,0,"images/hellgate.png"));
-        gameObjects.add(new Mirror(this,40*64,-3*64,64,2*64));
+        gameObjects.add(new Mirror(this,40*64,-3*64+40,64,2*64-40));
         gameObjects.add(new Couch(this,65*64,2*64,2*64,64));
         gameObjects.add(new Couch(this,70*64,2*64,2*64,64));
         gameObjects.add(new Envy(this,80*64+32,-3*64,2*64,2*64));
         gameObjects.add(new FightClub(this,107*64+32,64,64,2*64));
         gameObjects.add(treeBlock);
         gameObjects.add(getPC());
-        gameObjects.add(eveBlock1);
-        gameObjects.add(eveBlock2);
-        gameObjects.add(eveBlock3);
-        gameObjects.add(eveBlock4);
-        gameObjects.add(eveBlock5);
-        gameObjects.add(eveBlock6);
-        gameObjects.add(eveBlock7);
-        gameObjects.add(eveBlock8);
+        gameObjects.add(eveBlock);
     }
     public void gluttonyWin(){ 
         getGameObjects().remove(Eve);
         getGameObjects().remove(treeBlock);
+        getGameObjects().remove(Gluttony);
     }
     public void lustWin(){
         getGameObjects().remove(LustEve);
         getGameObjects().remove(EveChoice);
-        getGameObjects().remove(eveBlock1);
-        getGameObjects().remove(eveBlock2);
-        getGameObjects().remove(eveBlock3);
-        getGameObjects().remove(eveBlock4);
-        getGameObjects().remove(eveBlock5);
-        getGameObjects().remove(eveBlock6);
-        getGameObjects().remove(eveBlock7);
-        getGameObjects().remove(eveBlock8);
+        getGameObjects().remove(eveBlock);
     }
 }

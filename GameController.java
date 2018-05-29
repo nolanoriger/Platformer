@@ -70,6 +70,10 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
         catch(Exception NoSuchMethodException){
             System.out.println("Error, no such panel");
         }
+        if(varClass.equals(GameOverPanel.class)){
+            System.out.print("\u000C");
+            System.out.println((double)(System.currentTimeMillis()-startTime)/1000);
+        }
     }
     public void changeResetPanel(Class<? extends MyPanel> varClass){
         try{
@@ -79,6 +83,7 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
             currentPanel.setVisible(true);
             getContentPane().removeAll();
             getContentPane().add(currentPanel);
+            startTime = System.currentTimeMillis();
         }
         catch(Exception NoSuchMethodException){
             System.out.println("Error, no such panel");
