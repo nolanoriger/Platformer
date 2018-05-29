@@ -2,6 +2,15 @@ import java.util.ArrayList;
 public class ParLostLevel extends GamePanel{
     private Platform Eve,EveChoice;
     private Interaction LoveEve,LustEve;
+    private MinigameObject treeBlock = new MinigameObject(this,53*64,-64,64,64,0,"images/box.png");
+    private MinigameObject eveBlock1 = new MinigameObject(this,61*64,-128,64,64,0,"images/box.png");
+    private MinigameObject eveBlock2 = new MinigameObject(this,61*64,-64,64,64,0,"images/box.png");
+    private MinigameObject eveBlock3 = new MinigameObject(this,61*64,-128,64,64,0,"images/box.png");
+    private MinigameObject eveBlock4 = new MinigameObject(this,61*64,0,64,64,0,"images/box.png");
+    private MinigameObject eveBlock5 = new MinigameObject(this,61*64,64,64,64,0,"images/box.png");
+    private MinigameObject eveBlock6 = new MinigameObject(this,61*64,128,64,64,0,"images/box.png");
+    private MinigameObject eveBlock7 = new MinigameObject(this,61*64,-128-64,64,64,0,"images/box.png");
+    private MinigameObject eveBlock8 = new MinigameObject(this,61*64,-128*2,64,64,0,"images/box.png");
     public ParLostLevel(GameController gc){
         super(gc);
         //Construct the level
@@ -57,11 +66,31 @@ public class ParLostLevel extends GamePanel{
         gameObjects.add(new Couch(this,70*64,2*64,2*64,64));
         gameObjects.add(new Envy(this,80*64+32,-3*64,2*64,2*64));
         gameObjects.add(new FightClub(this,107*64+32,64,64,2*64));
+        gameObjects.add(treeBlock);
         gameObjects.add(getPC());
+        gameObjects.add(eveBlock1);
+        gameObjects.add(eveBlock2);
+        gameObjects.add(eveBlock3);
+        gameObjects.add(eveBlock4);
+        gameObjects.add(eveBlock5);
+        gameObjects.add(eveBlock6);
+        gameObjects.add(eveBlock7);
+        gameObjects.add(eveBlock8);
     }
-    public void gluttonyWin(){ getGameObjects().remove(Eve); }
+    public void gluttonyWin(){ 
+        getGameObjects().remove(Eve);
+        getGameObjects().remove(treeBlock);
+    }
     public void lustWin(){
         getGameObjects().remove(LustEve);
         getGameObjects().remove(EveChoice);
+        getGameObjects().remove(eveBlock1);
+        getGameObjects().remove(eveBlock2);
+        getGameObjects().remove(eveBlock3);
+        getGameObjects().remove(eveBlock4);
+        getGameObjects().remove(eveBlock5);
+        getGameObjects().remove(eveBlock6);
+        getGameObjects().remove(eveBlock7);
+        getGameObjects().remove(eveBlock8);
     }
 }
