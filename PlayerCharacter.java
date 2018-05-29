@@ -34,10 +34,8 @@ public class PlayerCharacter extends RigidBody{
                 else if(!ap&&!dp&&!anim.getImageSource().equals("images/idle.png")) anim = new Animation("images/idle.png",getPanel(),getX(),getY(),getWidth(),getHeight(),22,0,2);
             }
             else{
-                if(!anim.getImageSource().equals("images/fall.png")) anim = new Animation("images/fall.png",getPanel(),getX(),getY(),getWidth(),getHeight(),10,0,1);
-                if(getFallSpeed()<=20) anim.setFrame(1); //set to maximum upwards velocity frame
-                else if(getFallSpeed()<=10) anim.setFrame(2); //set to next highest upwards velocity frame
-                //continue this pattern for the amount of jump frames
+                if(!anim.getImageSource().equals("images/jump.png")) anim = new Animation("images/jump.png",getPanel(),getX(),getY(),getWidth(),getHeight(),8,0,1,1);
+                anim.setFrame(8-(4-getFallSpeed()/5));
             }
             anim.setX(getX());
             anim.setY(getY());

@@ -16,7 +16,8 @@ public class Eve extends Interaction{
         }
     }
     public void draw(Graphics g){
-        g.setColor(Color.cyan);
-        g.fillRect(getX(),getY(),getWidth(),getHeight());
+        if(isVisible()){
+            for(Collider c : getColliders()) c.draw(g);
+        }
     }
 }

@@ -26,7 +26,7 @@ public class Animation extends GameObject{
     public String getImageSource(){ return imgIcon.toString(); }
     public void setDir(boolean d){ direction = d; }
     public boolean getDir(){ return direction; }
-    public void setFrame(int n){ frame = 0; }
+    public void setFrame(int n){ frame = n; }
     private void drawFrame(Graphics2D g2d){
         if(frame==0){
             if(cycles == 0 || currentCycle < cycles){
@@ -50,7 +50,12 @@ public class Animation extends GameObject{
         }
         else{
             int frameX = (frame-1)*frameWidth;
-            g2d.drawImage(imgIcon.getImage(),getX()+frameWidth,getY(),getX(),getY()+frameHeight,(frame-1)*frameWidth,0,frameX+frameWidth,frameHeight,null);
+            if(direction){
+                g2d.drawImage(imgIcon.getImage(),getX(),getY(),getX()+frameWidth,getY()+frameHeight,(frame-1)*frameWidth,0,frameX+frameWidth,frameHeight,null);
+            }
+            else{
+                g2d.drawImage(imgIcon.getImage(),getX()+frameWidth,getY(),getX(),getY()+frameHeight,(frame-1)*frameWidth,0,frameX+frameWidth,frameHeight,null);
+            }
         }
     }
 }

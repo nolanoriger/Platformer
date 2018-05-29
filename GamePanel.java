@@ -14,10 +14,9 @@ public abstract class GamePanel extends MyPanel{
         c = getCamera();
         c.setLocation(pc.getX()-getWidth()/2,pc.getY()-getHeight()/2+pc.getHeight()/2);
         ArrayList gameObjects = getGameObjects();
-        gameObjects.add(pc);
     }
     public void paintComponent(Graphics g){
-        g.setColor(Color.LIGHT_GRAY);
+        g.setColor(Color.CYAN);
         g.fillRect(0,0,800,400);
         g.translate(-c.getX(),-c.getY());
         for(GameObject obj : getGameObjects()) obj.draw(g);

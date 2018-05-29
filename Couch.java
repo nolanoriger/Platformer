@@ -5,6 +5,8 @@ public class Couch extends GameObject{
         super(jp,x,y,w,h);
     }
     public void draw(Graphics g){
-        
+        if(isVisible()){
+            for(Collider c : getColliders()) c.draw(g);
+        }
     }
 }
