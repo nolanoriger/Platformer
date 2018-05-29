@@ -125,6 +125,8 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
         }
         if(!aPressed&&!dPressed&&speed!=0) pc.setSpeed(speed-speed/Math.abs(speed));
         if(spacePressed&&gamePanel.hitTest(pc,Interaction.class)!=null&&gamePanel.isVisible()) ((Interaction)gp.hitTest(pc,Interaction.class).get(0)).func();
+        else if(gamePanel.hitTest(pc,Interaction.class)!=null) gamePanel.setInteracting(true);
+        else gamePanel.setInteracting(false);
         if(gamePanel.hitTest(pc,Coin.class)!=null){
             changePanel(GameOverPanel.class);
             ((GameOverPanel)currentPanel).setScreen("images/gameoverscreen_greed.png");

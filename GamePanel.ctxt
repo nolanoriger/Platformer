@@ -12,4 +12,6 @@ comment5.params=
 comment5.target=PlayerCharacter\ getPC()
 comment6.params=x\ y
 comment6.target=void\ pingClick(int,\ int)
-numComments=7
+comment7.params=b
+comment7.target=void\ setInteracting(boolean)
+numComments=8
