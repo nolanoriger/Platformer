@@ -33,7 +33,6 @@ public abstract class GamePanel extends MyPanel{
                 handleY(rb);
             }
         }
-        if(hitTest(pc,KillBox.class)!=null) getGameController().changePanel(GameOverPanel.class);
     }
     public void cameraUpdate(){
         int x = c.getX();

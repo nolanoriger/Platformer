@@ -15,7 +15,7 @@ public class GameOverPanel extends MyPanel{
     }
     public void physicsUpdate(){ }
     public void pingClick(int x,int y){
-        getGameController().changePanel(TitlePanel.class);
+        getGameController().changeResetPanel(ParLostLevel.class);
     }
     public void setScreen(String src){
         screen = src;

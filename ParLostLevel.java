@@ -52,13 +52,13 @@ public class ParLostLevel extends GamePanel{
         gameObjects.add(new Coin(this,95*64+32,(int)(2.75*64)));
         gameObjects.add(new Coin(this,98*64+32,(int)(2.75*64)));
         gameObjects.add(new Coin(this,101*64+32,(int)(2.75*64)));
-        gameObjects.add(new KillBox(this,-10*64,10*64,100*64,10*64));
+        gameObjects.add(new KillBox(this,-10*64,10*64,100*64,10*64,"sloth"));
         gameObjects.add(new MinigameObject(this,-32,64,64,3*64,0,"images/heavengate.png"));
         gameObjects.add(new MinigameObject(this,115*64,64,64,3*64,0,"images/hellgate.png"));
-        gameObjects.add(new Mirror(this,40*64,-3*64+40,64,2*64-40));
-        gameObjects.add(new Couch(this,65*64,2*64,2*64,64));
-        gameObjects.add(new Couch(this,70*64,2*64,2*64,64));
-        gameObjects.add(new Envy(this,80*64+32,-3*64,2*64,2*64));
+        gameObjects.add(new KillBox(this,40*64,-3*64+40,64,2*64-40,"pride"));
+        gameObjects.add(new KillBox(this,65*64,2*64,2*64,64,"sloth"));
+        gameObjects.add(new KillBox(this,70*64,2*64,2*64,64,"sloth"));
+        gameObjects.add(new KillBox(this,80*64+32,-3*64,2*64,2*64,"envy"));
         gameObjects.add(new FightClub(this,107*64+32,64,64,2*64));
         gameObjects.add(treeBlock);
         gameObjects.add(getPC());

@@ -136,19 +136,10 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
             changePanel(GameOverPanel.class);
             ((GameOverPanel)currentPanel).setScreen("images/gameoverscreen_greed.png");
         }
-        if(gamePanel.hitTest(pc,Couch.class)!=null){
+        if(gamePanel.hitTest(pc,KillBox.class)!=null){
             changePanel(GameOverPanel.class);
-            ((GameOverPanel)currentPanel).setScreen("images/gameoverscreen_sloth.png");
+            ((GameOverPanel)currentPanel).setScreen("images/gameoverscreen_"+((KillBox)gamePanel.hitTest(pc,KillBox.class).get(0)).getID()+".png");
         }
-        if(gamePanel.hitTest(pc,Mirror.class)!=null){
-            changePanel(GameOverPanel.class);
-            ((GameOverPanel)currentPanel).setScreen("images/gameoverscreen_pride.png");
-        }
-        if(gamePanel.hitTest(pc,Envy.class)!=null){
-            changePanel(GameOverPanel.class);
-            ((GameOverPanel)currentPanel).setScreen("images/gameoverscreen_envy.png");
-        }
-        if(gamePanel.hitTest(pc,KillBox.class)!=null) changePanel(GameOverPanel.class);
         pc.applyGravity();
     }
     public void controlMini(MinigamePanel mg){

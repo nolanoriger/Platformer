@@ -3,10 +3,12 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import java.util.ArrayList;
 public class KillBox extends GameObject{
-    public KillBox(JPanel jp,int x,int y,int w,int h){
+    private String id;
+    public KillBox(JPanel jp,int x,int y,int w,int h,String id){
         super(jp,x,y,w,h);
         getColliders().add(new BoxCollider(this,0,0,w,h));
-        setVisible(true);
+        this.id = id;
+        setVisible(false);
     }
     public void draw(Graphics g){
         if(isVisible()){
@@ -15,4 +17,5 @@ public class KillBox extends GameObject{
             g.fillRect(getX(),getY(),getWidth(),getHeight());
         }
     }
+    public String getID(){ return id; }
 }
