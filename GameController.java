@@ -78,6 +78,7 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
     public void changeResetPanel(Class<? extends MyPanel> varClass){
         try{
             if(varClass.equals(ParLostLevel.class)) gamePanel = new ParLostLevel(this);
+            else if(varClass.equals(SatanLevel.class)) gamePanel = new SatanLevel(this);
             currentPanel.setVisible(false);
             currentPanel = gamePanel;
             currentPanel.setVisible(true);

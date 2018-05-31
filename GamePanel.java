@@ -11,13 +11,13 @@ public abstract class GamePanel extends MyPanel{
     private boolean interacting = true;
     public GamePanel(GameController gc){
         super(gc);
-        pc = new PlayerCharacter(this,80,0,"images/pc_singleframe.png");
+        pc = new PlayerCharacter(this,0,0,"images/idle.png");
         c = getCamera();
         c.setLocation(pc.getX()-getWidth()/2,pc.getY()-getHeight()/2+pc.getHeight()/2);
         ArrayList gameObjects = getGameObjects();
     }
     public void paintComponent(Graphics g){
-        g.setColor(Color.CYAN);
+        g.setColor(Color.GRAY);
         g.fillRect(0,0,800,400);
         g.translate(-c.getX(),-c.getY());
         for(GameObject obj : getGameObjects()) obj.draw(g);
@@ -34,18 +34,7 @@ public abstract class GamePanel extends MyPanel{
             }
         }
     }
-    public void cameraUpdate(){
-        int x = c.getX();
-        int y = c.getY();
-        if(pc.getX()+pc.getWidth()/2-x>getWidth()*3/5) x = pc.getX()-getWidth()*3/5+pc.getWidth()/2;
-        else if(pc.getX()+pc.getWidth()/2-x<getWidth()*2/5) x = pc.getX()-getWidth()*2/5+pc.getWidth()/2;
-        y = pc.getY()+pc.getHeight()/2-getHeight()/2;
-        if(x<0) x = 0;
-        else if(x>7360+pc.getWidth()/2-getWidth()-64) x = 7360+pc.getWidth()/2-getWidth()-64;
-        if(y<-4*64) y = -4*64;
-        else if(y>2*64) y = 2*64;
-        c.setLocation(x,y);
-    }
+    public abstract void cameraUpdate();
     public PlayerCharacter getPC(){ return pc; }
     public void pingClick(int x,int y){ }
     public void setInteracting(boolean b){ interacting = b; }

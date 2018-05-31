@@ -7,7 +7,8 @@ public class ParLostLevel extends GamePanel{
     private MinigameObject eveBlock = new MinigameObject(this,61*64,-64*5,64,8*64,0,"images/boxwall.png");
     public ParLostLevel(GameController gc){
         super(gc);
-        //Construct the level
+        getPC().setX(80);
+        getPC().setY(0);
         Eve = new Platform(this,53,-2,1,2);
         LoveEve = new Eve(this,59*64,-3*64,64,128,1);
         LustEve = new Eve(this,59*64,64,64,128,0);
@@ -73,5 +74,19 @@ public class ParLostLevel extends GamePanel{
         getGameObjects().remove(LustEve);
         getGameObjects().remove(EveChoice);
         getGameObjects().remove(eveBlock);
+    }
+    public void cameraUpdate(){
+        Camera c = getCamera();
+        PlayerCharacter pc = getPC();
+        int x = c.getX();
+        int y = c.getY();
+        if(pc.getX()+pc.getWidth()/2-x>getWidth()*3/5) x = pc.getX()-getWidth()*3/5+pc.getWidth()/2;
+        else if(pc.getX()+pc.getWidth()/2-x<getWidth()*2/5) x = pc.getX()-getWidth()*2/5+pc.getWidth()/2;
+        y = pc.getY()+pc.getHeight()/2-getHeight()/2;
+        if(x<0) x = 0;
+        else if(x>7360+pc.getWidth()/2-getWidth()-64) x = 7360+pc.getWidth()/2-getWidth()-64;
+        if(y<-4*64) y = -4*64;
+        else if(y>2*64) y = 2*64;
+        c.setLocation(x,y);
     }
 }
