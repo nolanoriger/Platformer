@@ -15,8 +15,9 @@ public class GameOverPanel extends MyPanel{
     }
     public void physicsUpdate(){ }
     public void pingClick(int x,int y){
-        if(screen.equals("images/endscreen.png")) getGameController().changeResetPanel(SatanLevel.class);
-        else getGameController().changeResetPanel(ParLostLevel.class);
+        /*if(screen.equals("images/endscreen.png")) getGameController().changeResetPanel(SatanLevel.class);
+        else getGameController().changeResetPanel(ParLostLevel.class);*/
+        getGameController().changePanel(TitlePanel.class);
     }
     public void setScreen(String src){
         screen = src;

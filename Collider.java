@@ -4,7 +4,7 @@ public abstract class Collider extends ScreenObject{
     Collider(GameObject obj,int x,int y){
         super(obj.getPanel(),x,y);
         parent = obj;
-        setVisible(true);
+        setVisible(false);
     }
     public int getX(){ return parent.getX()+super.getX(); }
     public int getY(){ return parent.getY()+super.getY(); }
