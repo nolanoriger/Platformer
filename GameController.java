@@ -36,6 +36,7 @@ public class GameController extends JFrame implements KeyListener,MouseListener{
                 ActionListener gameloopListener = new ActionListener(){
                     public void actionPerformed(ActionEvent actionEvent){
                         gameloop();
+                        setVisible(true);
                     }
                 };
                 gameloopTimer = new Timer(GAMELOOP_FREQUENCY, gameloopListener);
