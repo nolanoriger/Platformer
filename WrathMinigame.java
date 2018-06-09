@@ -5,11 +5,11 @@ public class WrathMinigame extends MinigamePanel{
         super(gc);
     }
     public void paintComponent(Graphics g){
-        ImageIcon img = new ImageIcon("images/wrathscreen.png");
+        ImageIcon img = new ImageIcon(getClass().getResource("images/wrathscreen.png"));
         g.drawImage(img.getImage(),0,0,getGameController().getWidth(),getGameController().getHeight(),null);
-        img = new ImageIcon("images/slaybutton.png");
+        img = new ImageIcon(getClass().getResource("images/slaybutton.png"));
         g.drawImage(img.getImage(),153,188,150,24,null);
-        img = new ImageIcon("images/sparebutton.png");
+        img = new ImageIcon(getClass().getResource("images/sparebutton.png"));
         g.drawImage(img.getImage(),497,188,150,24,null);
     }
     public void physicsUpdate(){ }
