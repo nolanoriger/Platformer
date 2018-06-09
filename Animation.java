@@ -11,7 +11,7 @@ public class Animation extends GameObject{
         frameWidth = width;
         frameHeight = height;
         this.numFrames = numFrames;
-        imgIcon = new ImageIcon(src);
+        imgIcon = new ImageIcon(getClass().getResource(src));
         this.cycles = cycles;
         direction = true;
         rate = animRate;

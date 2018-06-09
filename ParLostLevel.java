@@ -7,8 +7,7 @@ public class ParLostLevel extends GamePanel{
     private MinigameObject eveBlock = new MinigameObject(this,61*64,-64*5,64,8*64,0,"images/boxwall.png");
     public ParLostLevel(GameController gc){
         super(gc);
-        getPC().setX(80);
-        getPC().setY(0);
+        //Construct the level
         Eve = new Platform(this,53,-2,1,2);
         LoveEve = new Eve(this,59*64,-3*64,64,128,1);
         LustEve = new Eve(this,59*64,64,64,128,0);
@@ -53,13 +52,13 @@ public class ParLostLevel extends GamePanel{
         gameObjects.add(new Coin(this,95*64+32,(int)(2.75*64)));
         gameObjects.add(new Coin(this,98*64+32,(int)(2.75*64)));
         gameObjects.add(new Coin(this,101*64+32,(int)(2.75*64)));
-        gameObjects.add(new KillBox(this,-10*64,10*64,100*64,10*64,"sloth"));
+        gameObjects.add(new KillBox(this,-10*64,10*64,100*64,10*64));
         gameObjects.add(new MinigameObject(this,-32,64,64,3*64,0,"images/heavengate.png"));
         gameObjects.add(new MinigameObject(this,115*64,64,64,3*64,0,"images/hellgate.png"));
-        gameObjects.add(new KillBox(this,40*64,-3*64+40,64,2*64-40,"pride"));
-        gameObjects.add(new KillBox(this,65*64,2*64,2*64,64,"sloth"));
-        gameObjects.add(new KillBox(this,70*64,2*64,2*64,64,"sloth"));
-        gameObjects.add(new KillBox(this,80*64+32,-3*64,2*64,2*64,"envy"));
+        gameObjects.add(new Mirror(this,40*64,-3*64+40,64,2*64-40));
+        gameObjects.add(new Couch(this,65*64,2*64,2*64,64));
+        gameObjects.add(new Couch(this,70*64,2*64,2*64,64));
+        gameObjects.add(new Envy(this,80*64+32,-3*64,2*64,2*64));
         gameObjects.add(new FightClub(this,107*64+32,64,64,2*64));
         gameObjects.add(treeBlock);
         gameObjects.add(getPC());
@@ -74,19 +73,5 @@ public class ParLostLevel extends GamePanel{
         getGameObjects().remove(LustEve);
         getGameObjects().remove(EveChoice);
         getGameObjects().remove(eveBlock);
-    }
-    public void cameraUpdate(){
-        Camera c = getCamera();
-        PlayerCharacter pc = getPC();
-        int x = c.getX();
-        int y = c.getY();
-        if(pc.getX()+pc.getWidth()/2-x>getWidth()*3/5) x = pc.getX()-getWidth()*3/5+pc.getWidth()/2;
-        else if(pc.getX()+pc.getWidth()/2-x<getWidth()*2/5) x = pc.getX()-getWidth()*2/5+pc.getWidth()/2;
-        y = pc.getY()+pc.getHeight()/2-getHeight()/2;
-        if(x<0) x = 0;
-        else if(x>7360+pc.getWidth()/2-getWidth()-64) x = 7360+pc.getWidth()/2-getWidth()-64;
-        if(y<-4*64) y = -4*64;
-        else if(y>2*64) y = 2*64;
-        c.setLocation(x,y);
     }
 }

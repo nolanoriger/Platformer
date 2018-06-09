@@ -10,13 +10,11 @@ public class GameOverPanel extends MyPanel{
         c = getCamera();
     }
     public void paintComponent(Graphics g){
-        ImageIcon img = new ImageIcon(screen);
+        ImageIcon img = new ImageIcon(getClass().getResource(screen));
         g.drawImage(img.getImage(),0,0,getGameController().getWidth(),getGameController().getHeight(),null);
     }
     public void physicsUpdate(){ }
     public void pingClick(int x,int y){
-        /*if(screen.equals("images/endscreen.png")) getGameController().changeResetPanel(SatanLevel.class);
-        else getGameController().changeResetPanel(ParLostLevel.class);*/
         getGameController().changePanel(TitlePanel.class);
     }
     public void setScreen(String src){

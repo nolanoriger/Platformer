@@ -9,8 +9,7 @@ public class Eve extends Interaction{
     }
     public void func(){
         if(id==0){
-            ((MyPanel)getPanel()).getGameController().changePanel(GameOverPanel.class);
-            ((GameOverPanel)(((MyPanel)(getPanel())).getGameController().getCurrentPanel())).setScreen("images/gameoverscreen_lust.png");
+            ((ParLostLevel)getPanel()).getGameController().changePanel(GameOverPanel.class);
         }
         else{
             ((ParLostLevel)getPanel()).lustWin();

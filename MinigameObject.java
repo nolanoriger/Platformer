@@ -15,7 +15,7 @@ public class MinigameObject extends RigidBody{
     public void draw(Graphics g){
         if(isVisible()){
             for(Collider c : getColliders()) c.draw(g);
-            ImageIcon imgItem = new ImageIcon(source);
+            ImageIcon imgItem = new ImageIcon(getClass().getResource(source));
             g.drawImage(imgItem.getImage(),getX(),getY(),getWidth(),getHeight(),null);
         }
     }

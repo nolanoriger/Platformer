@@ -11,7 +11,7 @@ public class Coin extends GameObject{
             for(Collider c : getColliders()){
                 c.draw(g);
             }
-            ImageIcon img = new ImageIcon("images/coin.png");
+            ImageIcon img = new ImageIcon(getClass().getResource("images/coin.png"));
             g.drawImage(img.getImage(),getX(),getY(),getWidth(),getHeight(),null);
         }
     }

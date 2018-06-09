@@ -18,7 +18,7 @@ public class FruitCatchMinigame extends MinigamePanel{
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        ImageIcon img = new ImageIcon("images/gluttonyscreen.png");
+        ImageIcon img = new ImageIcon(getClass().getResource("images/gluttonyscreen.png"));
         g.drawImage(img.getImage(),0,0,getGameController().getWidth(),getGameController().getHeight(),null);
         if(counter<=0){
             counter = (int)(Math.random()*40+10);
@@ -38,7 +38,7 @@ public class FruitCatchMinigame extends MinigamePanel{
         for(int i = 0;i<points;i++){
             g.fillRect(750,300-30*i,45,25);
         }
-        img = new ImageIcon("images/heart.png");
+        img = new ImageIcon(getClass().getResource("images/heart.png"));
         for(int i = 0;i<lives;i++){
             g.drawImage(img.getImage(),10+25*i,10,20,20,null);
         }

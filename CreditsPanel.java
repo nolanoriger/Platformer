@@ -6,7 +6,7 @@ public class CreditsPanel extends MyPanel{
         super(gc);
     }
     public void paintComponent(Graphics g){
-        img = new ImageIcon("images/creditsscreen.png");
+        img = new ImageIcon(getClass().getResource("images/creditsscreen.png"));
         g.drawImage(img.getImage(),0,0,getWidth(),getHeight(),null);
     }
     public void physicsUpdate(){ }

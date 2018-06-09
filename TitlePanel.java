@@ -21,11 +21,11 @@ public class TitlePanel extends MyPanel{
     public void paintComponent(Graphics g){
         g.setColor(Color.white);
         g.fillRect(0,0,getWidth(),getHeight());
-        img = new ImageIcon("images/titlescreen.png");
+        img = new ImageIcon(getClass().getResource("images/titlescreen.png"));
         g.drawImage(img.getImage(),0,0,getWidth(),getHeight(),null);
-        img = new ImageIcon("images/playbutton.png");
+        img = new ImageIcon(getClass().getResource("images/playbutton.png"));
         g.drawImage(img.getImage(),325,219-18,150,24,null);
-        img = new ImageIcon("images/creditsbutton.png");
+        img = new ImageIcon(getClass().getResource("images/creditsbutton.png"));
         g.drawImage(img.getImage(),325,324-26,150,24,null);
     }
     public void physicsUpdate(){ }
